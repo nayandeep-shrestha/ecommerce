@@ -1,0 +1,51 @@
+@font-face {
+   src: url(./assets/fonts/metropolis.regular.otf);
+    font-family: MetropolisR;
+} 
+@font-face {
+    font-family: MetropolisB;
+    src: url(./assets/fonts/metropolis.bold.otf);
+}
+@font-face {
+    font-family: MetropolisSB;
+    src: url(./assets/fonts/metropolis.semi-bold.otf);
+}
+@font-face {
+    font-family: MetropolisL;
+    src: url(./assets/fonts/metropolis.light.otf);
+}
+
+body{
+    font-family: MetropolisR, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container-fluid{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #F2F3F7;
+    padding-bottom: 4rem !important;
+}
+.sub-title{
+    font-size: 1.6rem;
+    border-right: 0.5px solid rgb(197, 197, 197);
+    padding-right: 1.5rem;
+    margin-left: 3.5%;
+}
+.see-all{
+    margin-left: 1.5rem;
+    font-family: MetropolisR, sans-serif; 
+    font-size: 1.3rem ;
+    color: black;
+}
+.see-all:hover{
+    text-decoration: underline;
+    color:black;
+}
+.see-all:hover .arrow{
+    margin-left: 10px;
+    transition: 0.2s ease-in-out;
+}

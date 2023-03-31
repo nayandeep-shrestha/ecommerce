@@ -1,0 +1,15 @@
+.search-box .search-icon{
+    position: absolute;
+    top:0;
+    line-height: 38px;
+    left: 15px;
+}
+
+.badge-active{
+    background-color: #daf4eb;
+    color: #37c491;
+}
+.badge-inactive{
+    background-color: #fde4e4;
+    color: #f57878;
+}

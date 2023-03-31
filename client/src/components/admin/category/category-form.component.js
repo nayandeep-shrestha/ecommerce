@@ -1,0 +1,130 @@
+import { useFormik } from "formik";
+import { useCallback, useEffect, useState } from "react";
+import * as Yup from "yup";
+import { category_svc } from "./category.service";
+
+const CategoryForm = ({ submitAction, defaultValue }) => {
+    let[categories, setCategories] = useState()
+    const schema = Yup.object({
+        name: Yup.string().required().nullable(),
+        status: Yup.string().required().nullable(),
+        parent_id:Yup.string().nullable()
+    })
+
+    const formik = useFormik({
+        initialValues: defaultValue,
+        validationSchema: schema,
+        onSubmit: async (values) => {
+            submitAction(values)
+        }
+    })
+
+    const getAllCategories = useCallback( async () => {
+        let response = await category_svc.getAllList()
+        if(response.status){
+            setCategories(response.result)
+        } 
+    })
+
+    useEffect(() => {
+        getAllCategories()
+        formik.setValues({
+            ...defaultValue
+        })
+    }, [defaultValue])
+
+    return (<>
+        <form onSubmit={formik.handleSubmit}>
+            <div className="form-group row">
+                <div className="col-3"><label className="ml-3 text-dark">Title : </label></div>
+                <div className="col-9 align-self-end"><input type="text" className="form-control"
+                    name="name" placeholder="Enter category name" onChange={formik.handleChange} value={formik.values?.name ?? ""}  /></div>
+                <span className="text-danger">
+                    {formik.errors?.name}
+                </span>
+            </div>
+            <div className="form-group row">
+                <div className="col-3"><label className="ml-3 text-dark">Sub-Category Of : </label></div>
+                <div className="col-9 align-self-end">
+                    <select className="form-control" name='parent_id' onChange={formik.handleChange} value={formik.values?.parent_id ?? ""} required>
+                        <option>--Select Any One--</option>
+                        {
+                            categories && categories.map((item, key) =>(
+                                <option key={key} value={item._id}>
+                                    {item.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </div>
+                <span className="text-danger">
+                    {formik.errors?.parent_id}
+                </span>
+            </div>
+            <div className="form-group row">
+                <div className="col-3"><label className="ml-3 text-dark">Status : </label></div>
+                <div className="col-9 align-self-end">
+                    <select className="form-control" name="status" onChange={formik.handleChange} value={formik.values?.status ?? ""}>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <span className="text-danger">
+                    {formik.errors?.status}
+                </span>
+            </div>
+            <div className="form-group row">
+                <label className="col-sm-3 ml-3 text-dark">Image : </label>
+                <div className="col-sm-3">
+                    <input
+                        type="file"
+                        name="image"
+                        accept="image/*"
+                        onChange={(e) => {
+                            let ext = (e.target.files[0].name.split(".")).pop()
+                            if (["jpg", "jpeg", "svg", "png", "webp", "gif"].includes(ext.toLowerCase())) {
+                                formik.setValues({
+                                    ...formik.values,
+                                    image: e.target.files[0]
+                                })
+                            } else {
+                                formik.setErrors({
+                                    ...formik.errors,
+                                    image: "Invalid image format"
+                                })
+                            }
+                        }}
+                    />
+                    <span className="text-danger">{formik.errors?.image}</span>
+                </div>
+                <div className="col-sm-3">
+                    {
+                        formik.values?.image
+                            ?
+                            (
+                                (typeof (formik.values.image) === 'object')
+                                    ?
+                                    <img src={URL.createObjectURL(formik.values.image)} alt="" className="img-fluid img-thumbnail" />
+                                    :
+                                    <img src={process.env.REACT_APP_IMAGE_URL + '/category/' + formik.values.image} alt="" className="img-fluid img-thumbnail" />
+                            )
+                            :
+                            <></>
+                    }
+                </div>
+            </div>
+            <div className="form-group row mt-3">
+                <div className="col-9 offset-sm-3">
+                    <button type="reset" className="btn btn-danger mr-3 rounded-pill">
+                        Reset
+                    </button>
+                    <button type="submit" className=" btn btn-success rounded-pill">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+    </>)
+}
+
+export default CategoryForm

@@ -1,0 +1,102 @@
+
+.product-item{
+    background: white !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    min-height: 300px;
+    min-width: 200px;
+    overflow: hidden;
+    border: 1px solid #e7e8eb;
+    /* margin-right: 1rem; */
+}
+.product-item:hover{
+    box-shadow: 2px 0px 12px -1px rgb(0 0 0 / 14%);
+    -webkit-box-shadow: 2px 0px 12px -1px rgb(0 0 0 / 14%);
+    border:none;
+    transition: 0.2s ease-in-out;       
+}
+.discount-flag {
+    z-index: 2;
+    color: #fff;
+    background: #ff5e36;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 12px;
+    padding: 0 4px;
+    text-align: center;
+}
+.product-label{
+    padding-top:  24px;
+    padding-bottom: 20px;
+    min-height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-img{
+    width: max-content;
+    overflow: hidden;
+}
+.product-detail{
+    text-align: left;
+    color: black;
+    padding: 10px 12px;
+    border-radius: 10px;
+    max-width: 95%;
+    margin: 0 auto 2%;
+    width:100%
+}
+.product-title{
+    font-size: 18px;
+    color: black;
+}
+
+.product-price-list{
+    padding-bottom: 0.3rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: 0.8rem;
+}
+.product-disPrice{
+    margin-right: 8px;
+    font-size: 15px;
+}
+.product-discount{
+    color: #05a143;
+    font-weight: 100;
+    padding-right: 0.5rem !important;
+    font-size: 15px;
+}
+.product-price{
+    font-weight: 500;
+    color:#616161;
+    line-height: 21px;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+.product-cart{
+    display: flex;
+    align-items: center;
+    padding:12px 0 0;
+    width:100%;
+    border-top: 1px solid #e3e3e3;
+}
+.cart-button{
+    background:#ff5e36;
+    line-height: normal;
+    padding: 8px 12px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+.cart-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

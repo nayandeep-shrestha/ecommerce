@@ -1,0 +1,9 @@
+statefull/ class component
+    constructor
+    componentDidMount
+    componentDidUpdate
+    componentWillUnmount
+    render    
+
+state => data held by components
+hook => function used to use the features provided by react inside functional 

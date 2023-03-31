@@ -1,0 +1,43 @@
+
+/* .container-fluid{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #F2F3F7;
+    padding-bottom: 4rem !important;
+} */
+/*----------common--------------*/
+
+.brand, .categories, .products{
+    margin-top: 2rem;
+    color: black;
+    font-family: MetropolisSB, sans-serif;
+    width: 90% !important;
+    background: white;
+    margin-left:5% !important;
+    padding-top: 2rem;
+    border: 1px solid #dcdde1;
+} 
+.categories-container, .product-container{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+.services{
+    margin:40px 5%;
+    padding: 0.5rem 5rem;
+    background-color: #dcdcdc;
+    width: 90%;
+    font-family: MetropolisR, sans-serif;
+    color:rgb(0, 0, 0) ;
+    border-radius:5px
+}
+.services-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:1rem;
+}
+

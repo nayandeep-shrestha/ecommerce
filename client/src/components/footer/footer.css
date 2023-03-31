@@ -1,0 +1,81 @@
+.footer{
+    background:#333e48;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer-container{
+    width: 75%;
+    padding-top: 50px;
+    padding-bottom: 2rem;
+}
+.footer-title{
+    font-family: MetropolisSB, sans-serif;
+    font-size: 18px;
+}
+.footer-title,.footer-list{
+    margin: 0;
+    padding: 0;
+}
+.footer-list{
+    padding-top: 0.5rem;
+    list-style-type: none;
+    font-family: MetropolisL, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+.footer-list>li{
+    margin-bottom: 0.2rem;
+}
+.footer-links, .footer-links:hover{
+    color: white;
+}
+.footer-payment{
+    display: flex;
+    gap: 1rem;
+}
+.footer-payment-img{
+    width: 60px;
+    height: 60px;
+    padding-top: 0.5rem;
+}
+
+.footer-divider{
+    content: ' ';
+    width: 100%;
+    height: 0.5px;
+    background: white;
+    margin-bottom: 1.2rem;
+}
+
+.footer-social{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+.social-icon{
+    color:white;
+}
+.social-icon:hover{
+    cursor: pointer;
+}
+.fb:hover{
+    color: #1877F2;
+}
+.whats:hover{
+    color: #25D366;
+}
+.insta:hover{
+    color:#E4405F;
+}
+
+.footer-copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-family: MetropolisR;
+    font-size: 14px;
+}
