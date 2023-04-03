@@ -3,9 +3,9 @@ import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
 import { category_svc } from "../admin/category/category.service"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useSelector } from "react-redux"
+import {AiOutlineHeart, AiOutlineUser} from "react-icons/ai"
 import { BsSearch, BsCart3 } from "react-icons/bs"
 import { IoIosArrowDown } from "react-icons/io"
-import { FiUser } from "react-icons/fi"
 import "./navbar.css"
 import Logo from "../../assets/images/logo/logo.png"
 
@@ -16,6 +16,16 @@ const NavBar = () => {
     let navigate = useNavigate();
     const loggedInUser = useSelector((state) => {
         return state.user.userDetail;
+    })
+    const cartCount = useSelector((state) => {
+        let cart = state.cart.cartDetail
+        let quantity = 0
+        if(cart && cart.length){
+            cart.forEach((item)=> {
+                quantity += Number(item.quantity)
+            })
+        }
+        return quantity
     })
     const show = (e) => {
         setShow(true);
@@ -53,7 +63,7 @@ const NavBar = () => {
     }, [])
     useEffect(() => {
         getAllCategories();
-    }, [])
+    }, [getAllCategories])
 
     return (<>
         <header className="header-wrapper">
@@ -69,12 +79,16 @@ const NavBar = () => {
                 </form>
                 <div className="header-secondary-links">
                     <div className="header-icon-list right">
-                        <NavLink to='/cart' className={"navlink"}><BsCart3 size={25} /></NavLink>
+                        <NavLink to='/cart' className={"navlink"}>
+                            <BsCart3 size={25} />
+                            <span className="cart-count">{cartCount}</span>
+                        </NavLink>
+                        <NavLink to='/wishlist' className="navlink"><AiOutlineHeart size={25}/></NavLink>
                         {
                             loggedInUser ? <>
-                                <NavLink className="navlink" to="/admin">{loggedInUser?.name}</NavLink>
+                                <NavLink className="navlink" to="/admin"><div style={{borderRadius: "50%", background: "red", color:"white", padding:"0.25rem 0.8rem", fontSize: "1.2rem"}}>{loggedInUser?.name.charAt(0)}</div></NavLink>
                             </> : <>
-                                <NavLink className="navlink" to="/login"><FiUser size={25} /></NavLink>
+                                <NavLink className="navlink" to="/login"><AiOutlineUser size={25} /></NavLink>
                             </>
                         }
                     </div>
@@ -114,7 +128,7 @@ const NavBar = () => {
                         {
                             categories && categories.map((item, index) => (    
                                 item.parent_id ? <></> :                        
-                                <div className="col-md-3" >
+                                <div className="col-md-3" key={index}>
                                     <h5 className="menu-title">
                                         {item.name}
                                     </h5>

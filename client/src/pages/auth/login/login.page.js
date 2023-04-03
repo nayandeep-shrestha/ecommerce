@@ -1,15 +1,15 @@
 import { useFormik } from "formik"
 import { NavLink, useNavigate } from "react-router-dom"
 import * as Yup from "yup"
-import {ToastContainer, toast} from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import AuthService from "../../../services/auth.service"
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { userStore } from "../../../reducers/user.slicer";
 
 const Login = () => {
-    let [disable, setDisable] =useState(false)
+    let [disable, setDisable] = useState(false)
     let dispatch = useDispatch()
     let navigate = useNavigate()
     const schema = Yup.object({
@@ -23,36 +23,41 @@ const Login = () => {
         },
         validationSchema: schema,
         onSubmit: async (values) => {
-           try{
-            setDisable(true)
-            let auth_svc = new AuthService()
-            let loginResponse =await auth_svc.login(values)
-            if(loginResponse){
-                dispatch(userStore(loginResponse))
-                toast.success("Welcome to user pannel")
-                navigate("/" + loginResponse.role)
+            try {
+                setDisable(true)
+                let auth_svc = new AuthService()
+                let loginResponse = await auth_svc.login(values)
+                if (loginResponse) {
+                    dispatch(userStore(loginResponse))
+                    toast.success("Welcome to user pannel")
+                    if (loginResponse.role === "admin") {
+
+                        navigate("/" + loginResponse.role)
+                    } else if (loginResponse.role === 'customer') {
+                        navigate("/")
+                    }
+                }
+            } catch (err) {
+                console.log("Respone: ", err)
+                toast.error(err.msg)
+            } finally {
+                setDisable(false)
             }
-           }catch(err){
-            console.log("Respone: ",err)
-            toast.error(err.msg)
-        }finally{
-            setDisable(false)
-        }
         }
         // http://localhost:8000//api/v1/auth/login => request listener
         // http://localhost:3000/login => request generator
     })
 
-    useEffect(()=>{
+    useEffect(() => {
         let user = JSON.parse(localStorage.getItem("user_data")) ?? null;
-        if(user){
-            navigate("/"+user.role);
+        if (user) {
+            navigate("/" + user.role);
         }
-    },[])
-   
+    }, [])
+
     return (
         <>
-        <ToastContainer/>
+            <ToastContainer />
             <div className="container">
                 {/* Outer Row */}
                 <div className="row justify-content-center">
@@ -100,7 +105,7 @@ const Login = () => {
                                                 <NavLink className="small" to="/register">Create an Account!</NavLink>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>

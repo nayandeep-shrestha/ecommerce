@@ -7,6 +7,7 @@ import Error from "./error/404.page"
 import SearchPage from "./search/search.page"
 import CategoryProducts from "./category-product/categoryProduct.page"
 import BrandProducts from "./brand-product/brandProduct.page"
+import ProductDetail from "./product-detail/productDetail"
 
 const Pages ={
   HomePage,
@@ -17,7 +18,8 @@ const Pages ={
   Error,
   SearchPage,
   CategoryProducts,
-  BrandProducts
+  BrandProducts,
+  ProductDetail
 }
 
 export default Pages

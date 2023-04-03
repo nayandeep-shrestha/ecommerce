@@ -4,6 +4,7 @@ height: 300px;
 }
 .swiper{
     width: 90%;
+    margin-left: 5%;
 }
 .swiper-wrapper{
     margin-left: 0 !important;

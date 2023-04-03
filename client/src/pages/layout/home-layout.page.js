@@ -4,6 +4,7 @@ import AuthService from "../../services/auth.service"
 import { useDispatch } from "react-redux"
 import { useCallback, useEffect } from "react"
 import { userStore } from "../../reducers/user.slicer"
+import { updateCart } from "../../reducers/cart.slicer"
  
 const HomeLayout = () => {
     let auth_svc = new AuthService()
@@ -29,6 +30,7 @@ const HomeLayout = () => {
         if(token){
             checkValidation()
         }
+        dispatch(updateCart())
     },[checkValidation])
 
     return (

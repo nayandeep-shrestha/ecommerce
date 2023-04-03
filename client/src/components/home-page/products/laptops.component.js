@@ -12,7 +12,6 @@ const Laptops = () => {
     try {
       let response = await category_svc.getCategoryBySlug("laptops")
       if (response) {
-        console.log(response)
         setProduct(response.result.products)
       }
     } catch (error) {

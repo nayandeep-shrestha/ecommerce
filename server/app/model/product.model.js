@@ -2,65 +2,89 @@ const { string } = require("joi")
 const mongoose = require("mongoose")
 const CommonSchema = require("./common.model")
 const ProductSchemaDef = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true
     },
-    slug:{
+    slug: {
         type: String,
         default: null
     },
-    categories:[{
+    categories: [{
         type: mongoose.Types.ObjectId,
-        ref:"Category",
+        ref: "Category",
         default: null
     }],
-    brand:{
+    brand: {
         type: mongoose.Types.ObjectId,
-        ref:"Type",
+        ref: "Type",
         default: null
     },
-    description:{
+    description: {
         type: String
     },
-    price:{
+    price: {
         type: Number,
         required: true,
         min: 1
     },
-    discount:{
+    discount: {
         type: Number,
         min: 0,
         max: 100
     },
-    actual_price:{
+    actual_price: {
         type: Number,
         required: true
     },
-    seller:{
+    seller: {
         type: mongoose.Types.ObjectId,
-        ref:"User",
-        default:null
+        ref: "User",
+        default: null
     },
-    sku:{
-        type:String,
+    sku: {
+        type: String,
     },
-    stock:{
+    stock: {
         type: Number,
-        min:0,
+        min: 0,
 
     },
-    images:[{
+    rating: {
+        type: Number,
+        default: 0
+    },
+    numOfReviews: {
+        type: Number,
+        default: 0
+    },
+    reviews: [
+        {
+            name: {
+                type: String,
+                required: true,
+            },
+            raing: {
+                type: Number,
+                required: true
+            },
+            comment: {
+                type: String,
+                required: true,
+            }
+        }
+    ],
+    images: [{
         type: String,
-        required:  false,
+        required: false,
     }],
-    
+
     created_by: CommonSchema.created_by,
     status: CommonSchema.status
-},{
+}, {
     timestamps: true,
-    autoCreate:true,
-    autoIndex:true
+    autoCreate: true,
+    autoIndex: true
 })
 const ProductModel = mongoose.model('Product', ProductSchemaDef)
 module.exports = ProductModel

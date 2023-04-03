@@ -32,25 +32,25 @@ const ProductForm = ({ submitAction, defaultValue }) => {
         initialValues: defaultValue,
         validationSchema: schema,
         onSubmit: async (values) => {
-            if(values.brand){
+            if (values.brand) {
                 values.brand = values.brand.value
-            }else{
+            } else {
                 values.brand = null
             }
 
-            if(values.seller){
+            if (values.seller) {
                 values.seller = values.seller.value
-            }else{
+            } else {
                 values.seller = null
             }
 
-            if(values.categories){
+            if (values.categories) {
                 let sel_categories = []
                 values.categories.map((item) => {
                     sel_categories.push(item.value)
                 })
                 values.categories = sel_categories.join(',')
-            }else{
+            } else {
                 values.categories = null
             }
             submitAction(values)
@@ -77,8 +77,8 @@ const ProductForm = ({ submitAction, defaultValue }) => {
             setSeller(response)
         }
     })
-    
-    
+
+
     const imageValidate = (e) => {
         let files = Object.values(e.target.files)   // converts objects into array of objects
         let validImages = []
@@ -133,24 +133,24 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                 <div className="col-3"><label className="ml-3 text-dark">Description : </label></div>
                 <div className="col-9 align-self-end">
                     <CKEditor
-                    name="description"
+                        name="description"
                         editor={ClassicEditor}
                         data={formik.values?.description}
                         onChange={(event, editor) => {
                             const data = editor.getData();
-                            if(defaultValue.description){
+                            if (defaultValue?.description) {
                                 formik.setValues({
                                     ...defaultValue,
                                     description: data
                                 })
-                            }else{
+                            } else {
                                 formik.setValues({
                                     ...formik.values,
                                     description: data
                                 })
                             }
                         }}
-                      
+
                     />
                 </div>
                 <span className="text-danger">
@@ -173,7 +173,7 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                         classNamePrefix="select"
                         value={formik.values?.categories}
                         onChange={(e) => {
-                                formik.setValues({
+                            formik.setValues({
                                 ...formik.values,
                                 categories: e
                             })
@@ -184,7 +184,7 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                     {formik.errors?.categories}
                 </span>
             </div>
-            
+
             <div className="form-group row">
                 <div className="col-3"><label className="ml-3 text-dark">Brand : </label></div>
                 <div className="col-9 align-self-end">
@@ -200,7 +200,7 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                         classNamePrefix="select"
                         value={formik.values?.brand}
                         onChange={(e) => {
-                                formik.setValues({
+                            formik.setValues({
                                 ...formik.values,
                                 brand: e
                             })
@@ -261,10 +261,10 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                         value={formik.values?.seller}
                         onChange={(e) => {
                             formik.setValues({
-                            ...formik.values,
-                            seller: e
-                        })
-                    }}
+                                ...formik.values,
+                                seller: e
+                            })
+                        }}
                     />
                 </div>
                 <span className="text-danger">
@@ -302,7 +302,7 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                     } */}
                 </div>
             </div>
-                
+
             <div className="form-group row mt-3">
                 <div className="col-9 offset-sm-3">
                     <button type="reset" className="btn btn-danger mr-3 rounded-pill">

@@ -9,7 +9,7 @@ import support from "../../assets/images/services/support.png"
 import price from "../../assets/images/services/price.png"
 const HomePage = () => {
     return (<>
-        <Container fluid>
+        <section className="container-fluid">
             <Components.HomeComponent.Banner />
             <div className="services">
                 <div className="row">
@@ -44,8 +44,8 @@ const HomePage = () => {
             <Components.HomeComponent.Wearables />
             <Components.HomeComponent.Categories />
             <Components.HomeComponent.Brand />
-        </Container>
-    </>
+        </section>
+        </>
     )
 }
 

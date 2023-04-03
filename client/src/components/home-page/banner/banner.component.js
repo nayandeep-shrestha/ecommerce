@@ -22,7 +22,7 @@ const Banner = () => {
     }, [])
     useEffect(() => {
         getBanners()
-    }, [])
+    }, [getBanners])
     return (
         <Swiper
             cssMode={true}
@@ -38,7 +38,6 @@ const Banner = () => {
             }}
             keyboard={true}
             modules={[Pagination, Keyboard, Autoplay]}
-            className="mySwiper"
         >
             {
                 banner && banner.map((item, index) => (

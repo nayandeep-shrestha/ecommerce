@@ -33,7 +33,6 @@ const Brand = () => {
                     spaceBetween={30}
                     navigation={true}
                     modules={[Navigation]}
-                    className="mySwiper"
                 >
                     {
                         brands && brands.map((item, index) => (
@@ -47,51 +46,6 @@ const Brand = () => {
 
                         ))
                     }
-                    {/* <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={samsung} alt="SAMSUNG" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={oneplus} alt="ONEPLUS" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={apple} alt="APPLE" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={xiaomi} alt="Xiaomi" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={dell} alt="DELL" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={jbl} alt="JBL" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={sony} alt="SONY" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={acer} alt="ACER" />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="brand-logo">
-                            <img src={beats} alt="BEATS" />
-                        </div>
-                    </SwiperSlide> */}
                 </Swiper> 
             </div>
             {/* <span className="divider"></span> */}
