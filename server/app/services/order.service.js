@@ -9,7 +9,9 @@ class OrderService{
                 }
             },{
                 _id:1,
-                actual_price:1
+                actual_price:1,
+                title:1,
+                images:1
             })
             return sub_cart
         }catch(excep){

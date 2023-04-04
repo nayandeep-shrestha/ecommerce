@@ -189,7 +189,7 @@ const ProductDetail = () => {
                   </>
                     :
                     <>
-                    {productDetail?.stock === 0 ? <>No Stock</> :<>In Stock</>}
+                    {productDetail?.stock === 0 ? <>Out of Stock</> :<>In Stock</>}
                     </>
                 }
               </div>

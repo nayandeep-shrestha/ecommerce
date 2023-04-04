@@ -45,5 +45,37 @@ class OrderController{
             })
         }
     }
+    getCartData= async (req, res, next) =>{
+        try{
+            let cart = req.body
+           
+            let sub_cart = await this.order_svc.getCartItem(cart.cart)
+            let final_result = []
+            final_result= (sub_cart.map((item) => 
+                {
+                    let current_item = cart.cart.filter((current_cart_item) => item._id.equals(current_cart_item.product_id))
+                    final_result.sub_total += Number(Number(current_item[0].qty) * item.actual_price)
+                    return {
+                        product_id: item._id,
+                        price: item.actual_price,
+                        name: item.title,
+                        image: item.images[0],
+                        qty: current_item[0].quantity,
+                        total_amt: Number(current_item[0].quantity) * item.actual_price
+                    }
+                }
+            ))
+            res.json({
+                result: final_result,
+                status: true,
+                msg: "Your cart detail"
+            })
+        }catch(excep){
+            next({
+                status: 400,
+                msg: excep
+            })
+        }
+    }
 }
 module.exports = OrderController

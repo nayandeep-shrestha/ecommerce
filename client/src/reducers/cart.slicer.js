@@ -37,8 +37,13 @@ const CartSlicer = createSlice({
         updateCart: (state, action) => {
             let cart = JSON.parse(localStorage.getItem('cart')) ?? []
             state.cartDetail = cart
+        },
+        removeFromCart: (state, action) =>{
+            const newCart = state.cartDetail.filter((cartItem) => cartItem.product_id !== action.payload.product_id)
+            state.cartDetail = newCart
+            localStorage.setItem('cart', JSON.stringify(state.cartDetail))
         }
     }
 })
-export const { setDetail, updateCart } = CartSlicer.actions
+export const { setDetail, updateCart, removeFromCart } = CartSlicer.actions
 export default CartSlicer.reducer

@@ -6,4 +6,5 @@ const order_ctrl = new OrderController()
 const router = require("express").Router()
 
 router.post("/", loginCheck, isCustomer ,order_ctrl.createOrder)
+router.post("/cart",order_ctrl.getCartData)
 module.exports = router
