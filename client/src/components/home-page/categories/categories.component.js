@@ -18,7 +18,7 @@ const Categories = () => {
     }, [])
     useEffect(() => {
         getAllCategories();
-    }, [])
+    }, [getAllCategories])
     return (
         <div className="row categories">
             <h2 className='sub-title'>Shop By Category</h2>

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { MdAccessTime } from "react-icons/md";
 const CartSlicer = createSlice({
     name: "cart",
     initialState: {

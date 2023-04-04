@@ -80,15 +80,15 @@ const NavBar = () => {
                 <div className="header-secondary-links">
                     <div className="header-icon-list right">
                         <NavLink to='/cart' className={"navlink"}>
-                            <BsCart3 size={25} />
+                            <BsCart3 size={27} />
                             <span className="cart-count">{cartCount}</span>
                         </NavLink>
-                        <NavLink to='/wishlist' className="navlink"><AiOutlineHeart size={25}/></NavLink>
+                        <NavLink to='/wishlist' className="navlink"><AiOutlineHeart size={27}/></NavLink>
                         {
                             loggedInUser ? <>
                                 <NavLink className="navlink" to="/admin"><div style={{borderRadius: "50%", background: "red", color:"white", padding:"0.25rem 0.8rem", fontSize: "1.2rem"}}>{loggedInUser?.name.charAt(0)}</div></NavLink>
                             </> : <>
-                                <NavLink className="navlink" to="/login"><AiOutlineUser size={25} /></NavLink>
+                                <NavLink className="navlink" to="/login"><AiOutlineUser size={27} /></NavLink>
                             </>
                         }
                     </div>

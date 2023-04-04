@@ -8,6 +8,7 @@ import SearchPage from "./search/search.page"
 import CategoryProducts from "./category-product/categoryProduct.page"
 import BrandProducts from "./brand-product/brandProduct.page"
 import ProductDetail from "./product-detail/productDetail"
+import Cart from "./cart/cart.page"
 
 const Pages ={
   HomePage,
@@ -19,7 +20,8 @@ const Pages ={
   SearchPage,
   CategoryProducts,
   BrandProducts,
-  ProductDetail
+  ProductDetail,
+  Cart
 }
 
 export default Pages

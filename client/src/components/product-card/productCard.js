@@ -8,7 +8,6 @@ const ProductCard = ({ product }) => {
         edit: false,
         color: "rgba(20,20,20,0.3)",
         activeColor: "tomato",
-        size: '16px',
         value: 3,
         isHalf: true,
     }

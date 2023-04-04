@@ -1,0 +1,120 @@
+.cart-container{
+    margin-top: 2rem;
+    margin-left: 5%;
+    padding: 2rem;
+    width: 90%;
+    overflow: hidden;
+    font-family: MetropolisSB, sans-serif;
+    background: white;
+    border: 1px solid #dcdde1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-header{
+    color: #333e48;
+    text-align: center;
+    margin-bottom: 2.5rem
+
+}
+.cart-table{
+    text-indent: initial;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+}
+.cart-table thead th{
+    font-size: 1.1rem;
+    font-family: MetropolisL;
+    color: #747474;
+    border-bottom: 1px solid #ddd;
+    border-top: none;
+}
+.cart-table th,
+.cart-table td{
+    padding: 0.8rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+}
+.cart-table tbody tr.cart-item:first-child td{
+    padding-top: 2rem;
+}
+.cart-table tbody tr.cart-item td{
+    border-top: none;
+    padding-bottom: 1.1rem;
+    padding-top: 1.1rem;
+}
+.cart-table td{
+    vertical-align: middle;
+    font-size: 1.25rem;
+    color: #3e3e3e;
+}
+
+
+.cart-table .item-delete a{
+    color: #a7a7a7;
+    font-size: 1.5rem;
+}
+.cart-table .item-delete a:hover{
+    color:#ff5e36;
+}
+.cart-table .item-thumb{
+    width: 175px;
+}
+.item-thumb img{
+    height: 100px;
+    width: auto;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+}
+.cart-table .item-name a{
+    color: #3e3e3e;
+}
+.item-name a:hover{
+    text-decoration: none;
+    color: black;
+}
+.item-quantity .quantity{
+    width: 5em;
+}
+.item-quantity .quantity input[type=number]{
+    padding: 0.5rem 1.2rem;
+    width:5em;
+    background-color: transparent;
+    color: #818181;
+    outline: 0;
+    border: 0;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+}
+
+
+
+.cart-table .cart-actions{
+    text-align: right;
+    font-size: 1.2rem;
+    padding-top: 5rem;
+}
+.cart-actions .btn{
+    font-size: 1.15rem;
+    font-family: MetropolisSB;
+    border-radius: 50px;
+    padding: 0.9rem 2.2rem;
+    display: inline-block;
+    color: #333e48;
+    background-color: #efecec;
+    transition: all .2s ease-in-out;
+}
+.cart-table .cart-actions .proceed-to-checkout{
+    display: inline-block;
+    margin-left: 0.5em;
+}
+.cart-actions .checkout-btn{
+    color: #ffff;
+    background-color: #ff5e36;
+}
+.cart-actions .checkout-btn:hover,
+.cart-actions .update-cart:hover{
+    color:white;
+    background: #333e48;
+}
