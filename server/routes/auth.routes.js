@@ -16,6 +16,6 @@ router.post("/login",auth.login )
 // register 
 router.post("/register",upload_path, uploader.single('image'), auth.register )
 
-router.get("/me", loginCheck, isAdmin, auth.getLoggedInUser)
+router.get("/me", loginCheck,  auth.getLoggedInUser)
 
 module.exports = router;

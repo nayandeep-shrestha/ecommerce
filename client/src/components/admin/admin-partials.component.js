@@ -200,10 +200,10 @@ export const AdminTopbar = () => {
                             Activity Log
                         </a>
                         <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="/login" onClick={handleLogout}>
+                        <button className="dropdown-item" onClick={handleLogout}>
                             <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                             Logout
-                        </a>
+                        </button>
                     </div>
                 </li>
 

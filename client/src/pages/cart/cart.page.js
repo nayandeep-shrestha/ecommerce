@@ -11,7 +11,6 @@ const Cart = () => {
     let cart = useSelector((store) => {
         return store.cart.cartDetail
     })
-    // let [quantities, setQuantities] = useState([])
     let [cartData, setCartData] = useState()
     const getCartData = useCallback(async (cart) => {
         try {
@@ -31,9 +30,7 @@ const Cart = () => {
     let dispatch = useDispatch()
     const updateCart = (e) => {
         e.preventDefault()
-        // console.log(e)
         console.log(e.target[1].attributes.name, e.target[1].value)
-        // console.log(document.getElementById(cart[0].product_id).value)
         cart.forEach((item) => {
             let updateProd = {
                 product_id: item.product_id,

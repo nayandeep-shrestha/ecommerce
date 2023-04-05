@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
 import { category_svc } from "../admin/category/category.service"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useSelector } from "react-redux"
-import {AiOutlineHeart, AiOutlineUser} from "react-icons/ai"
+import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { BsSearch, BsCart3 } from "react-icons/bs"
 import { IoIosArrowDown } from "react-icons/io"
 import "./navbar.css"
@@ -20,8 +20,8 @@ const NavBar = () => {
     const cartCount = useSelector((state) => {
         let cart = state.cart.cartDetail
         let quantity = 0
-        if(cart && cart.length){
-            cart.forEach((item)=> {
+        if (cart && cart.length) {
+            cart.forEach((item) => {
                 quantity += Number(item.quantity)
             })
         }
@@ -39,9 +39,9 @@ const NavBar = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setQuery(keyword);
-        if(keyword === undefined){
+        if (keyword === undefined) {
             navigate(`/search?q=`);
-        }else{
+        } else {
             navigate(`/search?q=${keyword}`);
         }
     }
@@ -55,7 +55,7 @@ const NavBar = () => {
                 let active_categories = response.result.filter((item) => (item.status === 'active'))
                 setCategories(active_categories)
                 setSub_categories(response.result.filter((item) => (item.parent_id !== null && item.status === 'active')));
-                
+
             }
         } catch (error) {
             console.log(error);
@@ -83,12 +83,104 @@ const NavBar = () => {
                             <BsCart3 size={27} />
                             <span className="cart-count">{cartCount}</span>
                         </NavLink>
-                        <NavLink to='/wishlist' className="navlink"><AiOutlineHeart size={27}/></NavLink>
+                        <NavLink to='/wishlist' className="navlink"><AiOutlineHeart size={27} /></NavLink>
                         {
                             loggedInUser ? <>
-                                <NavLink className="navlink" to="/admin"><div style={{borderRadius: "50%", background: "red", color:"white", padding:"0.25rem 0.8rem", fontSize: "1.2rem"}}>{loggedInUser?.name.charAt(0)}</div></NavLink>
+                                <button className="navlink" onClick={() => {
+                                    let x = document.getElementById("acc-drop")
+                                    if (x.style.display === "none")
+                                        x.style.display = "block"
+                                    else
+                                        x.style.display = "none"
+                                }}>
+                                    <div style={{ borderRadius: "50%", background: "red", color: "white", padding: "0.25rem 0.8rem", fontSize: "1.2rem" }}>
+                                        {loggedInUser?.name.charAt(0)}
+                                    </div>
+                                    <div className="account-dropdwn" id="acc-drop" style={
+                                        {
+                                            position: "absolute",
+                                            background: "white",
+                                            display: "none",
+                                            padding: "10px 0px",
+                                            width: "150px",
+                                            right: "1%",
+                                            top: "50%",
+                                            borderRadius: "5px",
+                                            borderTop: "2px solid tomato",
+                                            boxShadow: "0px 2px 2px 1px gray"
+                                        }
+                                    }>
+                                        
+                                            <ul style={{listStyle:"none", textAlign:"left", paddingLeft:"2rem"}}>
+                                                <li>My account</li>
+                                                <li>Orders</li>
+                                                <li>Logout</li>
+                                            </ul>
+                                        
+
+                                    </div>
+                                </button>
                             </> : <>
-                                <NavLink className="navlink" to="/login"><AiOutlineUser size={27} /></NavLink>
+                                <button className="navlink" onClick={() => {
+                                    let x = document.getElementById("acc-drop")
+                                    if (x.style.display === "none")
+                                        x.style.display = "block"
+                                    else
+                                        x.style.display = "none"
+                                }}>
+                                    <AiOutlineUser size={27} />
+                                    <div className="account-dropdwn" id="acc-drop" style={
+                                        {
+                                            position: "absolute",
+                                            background: "white",
+                                            display: "none",
+                                            padding: "10px 5px",
+                                            width: "200px",
+                                            right: "0.5%",
+                                            top: "50%",
+                                            borderRadius: "5px",
+                                            borderTop: "2px solid tomato",
+                                            boxShadow: "0px 2px 2px 1px gray"
+                                        }
+                                    }>
+                                        <div className="drop-items" style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "center",
+                                            alignItems: "center"
+                                        }}>
+                                            <NavLink className="navlink" to="/login" style={{
+                                                margin: "0.4rem 0 0.9rem 0"
+                                            }}>
+                                                <button style={{
+                                                    background: "#FF5E36",
+                                                    color: "white",
+                                                    borderRadius: "5px",
+                                                    padding: "5px 8px"
+                                                }}>
+                                                    Sign in
+                                                </button>
+                                            </NavLink>
+                                            <div className="divide" style={{
+                                                content: " ",
+                                                height: "1px",
+                                                width: "100%",
+                                                background: "#bcbcbc",
+                                                marginBottom: "0.8rem"
+                                            }}></div>
+                                            <h6 style={{ fontSize: "1.05rem" }}>New Customer ?</h6>
+                                            <NavLink to="/register" style={{
+                                                fontFamily: "MetropolisSB",
+                                                fontSize: "1.05rem"
+                                            }}>
+
+                                                Register
+
+                                            </NavLink>
+                                        </div>
+
+                                    </div>
+                                </button>
                             </>
                         }
                     </div>
@@ -126,25 +218,25 @@ const NavBar = () => {
                 }}>
                     <div className="row menu-wrapper">
                         {
-                            categories && categories.map((item, index) => (    
-                                item.parent_id ? <></> :                        
-                                <div className="col-md-3" key={index}>
-                                    <h5 className="menu-title">
-                                        {item.name}
-                                    </h5>
-                                    <ul className="menu-list">
-                                    {
-                                        sub_categories && sub_categories.map((sub_item, index) =>(
-                                            sub_item.parent_id.name === item.name ? 
-                                            
-                                        <li key={index}><NavLink className="navlink" to="#">{sub_item.name}</NavLink></li>
-                                    
-                                    :<></>
-                                        ))
-                                    }
-                                    </ul>
-                                    
-                                </div>
+                            categories && categories.map((item, index) => (
+                                item.parent_id ? <></> :
+                                    <div className="col-md-3" key={index}>
+                                        <h5 className="menu-title">
+                                            {item.name}
+                                        </h5>
+                                        <ul className="menu-list">
+                                            {
+                                                sub_categories && sub_categories.map((sub_item, index) => (
+                                                    sub_item.parent_id.name === item.name ?
+
+                                                        <li key={index}><NavLink className="navlink" to="#">{sub_item.name}</NavLink></li>
+
+                                                        : <></>
+                                                ))
+                                            }
+                                        </ul>
+
+                                    </div>
                             ))
 
                         }

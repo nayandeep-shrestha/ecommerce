@@ -29,9 +29,8 @@ const Login = () => {
                 let loginResponse = await auth_svc.login(values)
                 if (loginResponse) {
                     dispatch(userStore(loginResponse))
-                    toast.success("Welcome to user pannel")
                     if (loginResponse.role === "admin") {
-
+                        toast.success("Welcome to user pannel")
                         navigate("/" + loginResponse.role)
                     } else if (loginResponse.role === 'customer') {
                         navigate("/")
@@ -48,12 +47,12 @@ const Login = () => {
         // http://localhost:3000/login => request generator
     })
 
-    useEffect(() => {
-        let user = JSON.parse(localStorage.getItem("user_data")) ?? null;
-        if (user) {
-            navigate("/" + user.role);
-        }
-    }, [])
+    // useEffect(() => {
+    //     let user = JSON.parse(localStorage.getItem("user_data")) ?? null;
+    //     if (user) {
+    //         navigate("/" + user.role);
+    //     }
+    // }, [])
 
     return (
         <>
