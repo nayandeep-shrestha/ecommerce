@@ -42,8 +42,12 @@ const CartSlicer = createSlice({
             const newCart = state.cartDetail.filter((cartItem) => cartItem.product_id !== action.payload.product_id)
             state.cartDetail = newCart
             localStorage.setItem('cart', JSON.stringify(state.cartDetail))
+        },
+        resetCart: (state,action) => {
+            localStorage.removeItem('cart')
+            state.cartDetail = null
         }
     }
 })
-export const { setDetail, updateCart, removeFromCart } = CartSlicer.actions
+export const { setDetail, updateCart, removeFromCart, resetCart } = CartSlicer.actions
 export default CartSlicer.reducer

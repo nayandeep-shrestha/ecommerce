@@ -22,11 +22,11 @@ class OrderController{
             final_result.cart = (sub_cart.map((item) => 
                 {
                     let current_item = cart.cart.filter((current_cart_item) => item._id.equals(current_cart_item.product_id))
-                    final_result.sub_total += Number(Number(current_item[0].qty) * item.actual_price)
+                    final_result.sub_total += Number(Number(current_item[0].quantity) * item.actual_price)
                     return {
                         product_id: item._id,
-                        qty: current_item[0].qty,
-                        total_amt: Number(current_item[0].qty) * item.actual_price
+                        qty: current_item[0].quantity,
+                        total_amt: Number(current_item[0].quantity) * item.actual_price
                     }
                 }
             ))

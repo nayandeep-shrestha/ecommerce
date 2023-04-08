@@ -19,6 +19,8 @@ const Routing = () => {
                         <Route path="brand-products/:slug" element={<Pages.BrandProducts />} />
                         <Route path="products/:id" element={<Pages.ProductDetail />} />
                         <Route path="cart" element={<Pages.Cart/>}></Route>
+                        <Route path="checkout" element={<Pages.Checkout/>}></Route>
+                        
                     </Route>
 
                     <Route path="/admin" element={<PrivateComponent component={<Pages.AdminLayout />} />}>

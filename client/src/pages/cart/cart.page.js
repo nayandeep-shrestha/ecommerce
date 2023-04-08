@@ -1,5 +1,5 @@
 import "./cart.css"
-import { NavLink } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useCallback, useEffect, useState } from "react"
@@ -26,11 +26,10 @@ const Cart = () => {
         if (cart && cart.length > 0) {
             getCartData(cart)
         }
-    }, [cart])
+    }, [cart, getCartData])
     let dispatch = useDispatch()
     const updateCart = (e) => {
         e.preventDefault()
-        console.log(e.target[1].attributes.name, e.target[1].value)
         cart.forEach((item) => {
             let updateProd = {
                 product_id: item.product_id,
@@ -99,7 +98,7 @@ const Cart = () => {
                                             <td colSpan='6' className="cart-actions">
                                                 <button type="submit" className="update-cart btn">Update Cart</button>
                                                 <div className="proceed-to-checkout">
-                                                    <NavLink to="/checkout" className="checkout-btn btn">Proceed to checkout</NavLink>
+                                                    <NavLink to="/checkout" className="checkout-btn btn-main btn">Proceed to checkout</NavLink>
                                                 </div>
                                             </td>
                                         </tr>
@@ -109,7 +108,9 @@ const Cart = () => {
                         </>
                             :
                             <>
-                                <tr>No Items in Cart</tr>
+                                <div id="no-item" className="alert-box" style={{display:"block"}}>
+                                    No Items Found in Cart
+                                </div>
                             </>
                     }
 

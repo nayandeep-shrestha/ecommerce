@@ -1,0 +1,14 @@
+.alert-box{
+    color: #842029;
+    background-color: #f8d7da;
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #f5c2c7;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-family: MetropolisL;
+    font-size: 1.5rem;
+    display: none;
+}
+

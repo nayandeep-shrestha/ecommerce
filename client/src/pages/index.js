@@ -9,6 +9,7 @@ import CategoryProducts from "./category-product/categoryProduct.page"
 import BrandProducts from "./brand-product/brandProduct.page"
 import ProductDetail from "./product-detail/productDetail"
 import Cart from "./cart/cart.page"
+import Checkout from "./checkout/checkout.page"
 
 const Pages ={
   HomePage,
@@ -21,7 +22,8 @@ const Pages ={
   CategoryProducts,
   BrandProducts,
   ProductDetail,
-  Cart
+  Cart,
+  Checkout
 }
 
 export default Pages

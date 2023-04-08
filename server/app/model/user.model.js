@@ -9,6 +9,11 @@ const UserSchemaDef = new mongoose.Schema({
         requried: true,
         unique: true
     },
+    mobile:{
+        type: Number,
+        required: true,
+        unique:true
+    },
     password:{
         type: String,
         required: true

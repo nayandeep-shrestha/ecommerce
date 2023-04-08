@@ -47,12 +47,12 @@ const Login = () => {
         // http://localhost:3000/login => request generator
     })
 
-    // useEffect(() => {
-    //     let user = JSON.parse(localStorage.getItem("user_data")) ?? null;
-    //     if (user) {
-    //         navigate("/" + user.role);
-    //     }
-    // }, [])
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem("user_data")) ?? null;
+        if (user) {
+            navigate("/");
+        }
+    }, [])
 
     return (
         <>
@@ -67,9 +67,9 @@ const Login = () => {
                                     <div className="col">
                                         <div className="p-5">
                                             <div className="text-center">
-                                                <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                                <h1 className="h3 text-gray-900 mb-4"  style={{fontFamily:"MetropolisSB"}}>Welcome Back!</h1>
                                             </div>
-                                            <form className="user" onSubmit={formik.handleSubmit}>
+                                            <form className="user" onSubmit={formik.handleSubmit} style={{fontFamily:"MetropolisR"}}>
                                                 <div className="form-group">
                                                     <input type="email" className="form-control form-control-user"
                                                         name="email" aria-describedby="emailHelp"
@@ -88,20 +88,19 @@ const Login = () => {
                                                 <div className="form-group">
                                                     <div className="custom-control custom-checkbox small">
                                                         <input type="checkbox" className="custom-control-input" id="customCheck" />
-                                                        <label className="custom-control-label" htmlFor="customCheck">Remember
-                                                            Me</label>
+                                                        <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
                                                     </div>
                                                 </div>
-                                                <button type="submit" className="btn btn-primary btn-user btn-block" disabled={disable}>
+                                                <button type="submit" className="btn btn-block btn-main" disabled={disable}>
                                                     Login
                                                 </button>
                                             </form>
                                             <hr />
-                                            <div className="text-center">
-                                                <NavLink className="small" to="forgot-password.html">Forgot Password?</NavLink>
+                                            <div className="text-center my-2">
+                                                <NavLink to="forgot-password.html">Forgot Password?</NavLink>
                                             </div>
                                             <div className="text-center">
-                                                <NavLink className="small" to="/register">Create an Account!</NavLink>
+                                                <NavLink to="/register">Create an Account!</NavLink>
                                             </div>
                                         </div>
                                     </div>

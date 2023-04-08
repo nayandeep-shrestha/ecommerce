@@ -1,0 +1,41 @@
+statefull/ class component
+    constructor
+    componentDidMount
+    componentDidUpdate
+    componentWillUnmount
+    render    
+
+ // //storage-- file store OR DB store
+
+            // //First step -----> db connection
+            // MongoClient.connect(dbUrl)  //this func connects db and returns db client
+            //     .then((client) => {
+
+            // //Second step -----> select the database
+            //         let db = client.db(dbName)
+        
+            // //Third step ------> query in  the db
+            //         return db.collection("users").insertOne(data)
+                        
+            //     })
+            //     .then((writeConcern) => {
+            //         res.json({
+            //             result: data,
+            //             status: true,
+            //             msg:"user registered"
+            //         })
+            //     })
+            //     .catch((error) => {
+            //         next({status: 500, msg:error})
+            //     })
+
+
+
+
+------------Remaining Work-----------------
+// address checkValidation
+// checkout page design
+// order history of individual customer
+// nvaigate to orders page after placing order
+// filter functionality
+// review functionality

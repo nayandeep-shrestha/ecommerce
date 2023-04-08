@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
+import { useDispatch } from "react-redux"
 import { category_svc } from "../admin/category/category.service"
+import { userStore } from "../../reducers/user.slicer"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { useSelector } from "react-redux"
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
@@ -14,6 +16,7 @@ const NavBar = () => {
     let [keyword, setKeyword] = useState();
     const [query, setQuery] = useSearchParams();
     let navigate = useNavigate();
+    let dispatch = useDispatch();
     const loggedInUser = useSelector((state) => {
         return state.user.userDetail;
     })
@@ -45,7 +48,14 @@ const NavBar = () => {
             navigate(`/search?q=${keyword}`);
         }
     }
-
+    const handleLogout = (e) => {
+        e.preventDefault()
+        localStorage.removeItem("user_data")
+        localStorage.removeItem("user_token")
+        dispatch(userStore({}));
+        //localStorage.clear() =>> clear all data
+        navigate("/login")
+    }
     let [categories, setCategories] = useState();
     let [sub_categories, setSub_categories] = useState();
     const getAllCategories = useCallback(async () => {
@@ -101,23 +111,27 @@ const NavBar = () => {
                                             position: "absolute",
                                             background: "white",
                                             display: "none",
-                                            padding: "10px 0px",
-                                            width: "150px",
+                                            padding: "15px 0 10px 0",
+                                            width: "175px",
+                                            height: "fit-content",
                                             right: "1%",
-                                            top: "50%",
+                                            top: "55%",
                                             borderRadius: "5px",
                                             borderTop: "2px solid tomato",
                                             boxShadow: "0px 2px 2px 1px gray"
                                         }
                                     }>
-                                        
-                                            <ul style={{listStyle:"none", textAlign:"left", paddingLeft:"2rem"}}>
-                                                <li>My account</li>
-                                                <li>Orders</li>
-                                                <li>Logout</li>
-                                            </ul>
-                                        
-
+                                        <div className="account-drop-item" style={{ textAlign: "left",  fontSize: "1.2rem" }}>
+                                            <p style={{margin:"0",paddingLeft: "1rem"}}>My account</p>
+                                        </div>
+                                        <div className="divider" style={{margin:"0 0 0.5rem 0"}}></div>
+                                        <div className="account-drop-item" style={{ textAlign: "left", fontSize: "1.2rem" }}>
+                                            <p style={{margin:"0", paddingLeft: "1rem"}}>Orders</p>
+                                        </div>
+                                        <div className="divider" style={{margin:"0 0 0.5rem 0"}}></div>
+                                        <div className="account-drop-item" style={{ textAlign: "left", fontSize: "1.2rem" }}>
+                                            <button onClick={handleLogout} style={{paddingLeft: "1rem"}}>Logout</button>
+                                        </div>
                                     </div>
                                 </button>
                             </> : <>

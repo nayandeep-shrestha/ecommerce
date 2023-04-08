@@ -194,10 +194,10 @@ const ProductDetail = () => {
                 }
               </div>
               <div className="product-cart-buy">
-                <button className="buy-now">Buy Now</button>
+                <button className="buy-now btn">Buy Now</button>
                 <form onSubmit={addToCart} >
 
-                <button type="submit" className="add-to-cart" >Add to Cart</button>
+                <button type="submit" className="add-to-cart btn-main btn" >Add to Cart</button>
                 </form>
               </div>
               <div id="test"></div>

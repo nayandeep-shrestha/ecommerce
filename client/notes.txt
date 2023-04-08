@@ -1,6 +1,0 @@
-statefull/ class component
-    constructor
-    componentDidMount
-    componentDidUpdate
-    componentWillUnmount
-    render    

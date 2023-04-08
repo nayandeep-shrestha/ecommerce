@@ -25,6 +25,14 @@ class AuthService extends HttpRequestService {
             throw err
         }
     }
+    register = async (data) =>{
+        try {
+            let user_register = await this.postRequest(API_ENDPOINTS.register, data)
+            return user_register.status
+        } catch (error) {
+            throw error
+        }
+    }
     getMyProfile= async () => {
         try{
             let user = await this.getRequest(API_ENDPOINTS.me, {strict: true})

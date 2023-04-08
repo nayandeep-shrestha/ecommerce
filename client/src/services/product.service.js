@@ -16,6 +16,14 @@ class ProductService extends HttpRequestService {
             throw error
         }
     }
+    createOrder = async (orderDetail) => {
+        try {
+            let response = await this.postRequest('/order', orderDetail, {strict:true})
+            return response
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 export default new ProductService();

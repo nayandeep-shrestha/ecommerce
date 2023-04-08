@@ -41,29 +41,6 @@ class AuthController{
                 data.image = req.file.filename
             }
             await this.auth_svc.validateRegisterData(data)
-            // //storage-- file store OR DB store
-
-            // //First step -----> db connection
-            // MongoClient.connect(dbUrl)  //this func connects db and returns db client
-            //     .then((client) => {
-
-            // //Second step -----> select the database
-            //         let db = client.db(dbName)
-        
-            // //Third step ------> query in  the db
-            //         return db.collection("users").insertOne(data)
-                        
-            //     })
-            //     .then((writeConcern) => {
-            //         res.json({
-            //             result: data,
-            //             status: true,
-            //             msg:"user registered"
-            //         })
-            //     })
-            //     .catch((error) => {
-            //         next({status: 500, msg:error})
-            //     })
             data.password = bcrypt.hashSync(data.password, 10)
             let response = await this.auth_svc.registerUser(data);
 
