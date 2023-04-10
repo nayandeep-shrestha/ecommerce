@@ -15,6 +15,9 @@ router.post("/login",auth.login )
 
 // register 
 router.post("/register",upload_path, uploader.single('image'), auth.register )
+router.post("/check", auth.checkUser)
+router.post('/verifyOTP', auth.verifyOTP)
+router.post('/resendOTP', auth.resendOTP)
 
 router.get("/me", loginCheck,  auth.getLoggedInUser)
 

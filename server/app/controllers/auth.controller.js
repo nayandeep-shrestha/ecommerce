@@ -1,8 +1,10 @@
 const AuthService = require("../services/auth.service")
+const OTPModel = require("../model/OTPverification.model")
 const bcrypt = require("bcrypt")
 const JWT = require("jsonwebtoken")
 const Config = require("../../config/config")
 const sendEmail = require("../services/mail.service")
+const UserModel = require("../model/user.model")
 class AuthController{
     constructor(){
         this.auth_svc = new AuthService()
@@ -69,6 +71,78 @@ class AuthController{
             status: true,
             msg: "Logged in user fetched"
         })
+    }
+    checkUser = async(req,res,next) => {
+        try{
+            let data = await this.auth_svc.checkMail(req.body.email)
+            if(!data){
+                throw "Email not found"
+            }
+            else{
+                let sendOTP= await this.auth_svc.sendOTP(data)
+                res.json({
+                    result: {
+                        user_id: data._id,
+                        email: data.email
+                    },
+                    status: "pending",
+                    message: "Verification email sent"
+                })
+            }
+        }catch(error){
+            next({
+                status: 400, 
+                msg: error
+            })
+        }
+    }
+    verifyOTP = async(req,res,next) => {
+        try {
+            let {id, otp} = req.body
+            if(!id || !otp){
+                throw "Empty otp details are not allowed"
+            }else{
+                let verifiedData = await this.auth_svc.verify({id,otp})
+                res.json({
+                    result: verifiedData,
+                    status: true,
+                    msg: "User email verified successfully"
+                })
+            }
+        } catch (error) {
+            next({
+                status: 400, 
+                msg: error
+            })
+        }
+    }
+    resendOTP = async(req,res,next) =>{
+        try {
+            let id= req.body.id
+            if(!id){
+                throw "Empty details are not allowed"
+            }else{
+                await OTPModel.deleteMany({user_id:id})
+                let user = await UserModel.findOne({
+                    _id: id
+                })
+                // console.log(user)
+                let sendOTP = await this.auth_svc.sendOTP(user)
+                res.json({
+                    result: {
+                        user_id: user._id,
+                        email: user.email
+                    },
+                    status: "pending",
+                    message: "Verification email sent"
+                })
+            }
+        } catch (error) {
+            next({
+                status: 400, 
+                msg: error
+            })
+        }
     }
 }
 module.exports = AuthController

@@ -45,6 +45,31 @@ class AuthService extends HttpRequestService {
             throw excep
         }
     }
+    checkUser = async (email) => {
+        try {
+            let response = await this.postRequest(API_ENDPOINTS.checkUser, email)
+            return response
+        } catch (error) {
+            throw error
+        }
+    }
+    otpVerify = async (otpData) => {
+        try {
+            let response = await this.postRequest(API_ENDPOINTS.otpVerify, otpData)
+            return response
+        } catch (error) {
+            throw error
+        }
+    }
+    resendOTP = async (otpData) => {
+        try {
+            let response = await this.postRequest(API_ENDPOINTS.resendOTP, otpData)
+            // console.log(response)
+            return response
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 export default AuthService

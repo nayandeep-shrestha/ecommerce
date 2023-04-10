@@ -13,14 +13,21 @@ const Routing = () => {
                     <Route path="/" element={<Pages.HomeLayout />}>
                         <Route index element={<Pages.HomePage />} />
                         <Route path="register" element={<Pages.Register />} />
+                        {/* <Route path="login" element={<Pages.LoginLayout />} >
+                            <Route index element={<Pages.Login />} />
+                            <Route path="forgot-password" element={<Pages.ForgotPassword />} />
+                            <Route path="verify-otp/:id" element={<Pages.VerifyOTP />} />
+                        </Route> */}
                         <Route path="login" element={<Pages.Login />} />
+                        <Route path="login/forgot-password" element={<Pages.ForgotPassword />} />
+                        <Route path="login/verify-otp/:id" element={<Pages.VerifyOTP />} />
+
                         <Route path="search" element={<Pages.SearchPage />} />
                         <Route path="productCategory/:slug" element={<Pages.CategoryProducts />} />
                         <Route path="brand-products/:slug" element={<Pages.BrandProducts />} />
                         <Route path="products/:id" element={<Pages.ProductDetail />} />
-                        <Route path="cart" element={<Pages.Cart/>}></Route>
-                        <Route path="checkout" element={<Pages.Checkout/>}></Route>
-                        
+                        <Route path="cart" element={<Pages.Cart />}></Route>
+                        <Route path="checkout" element={<Pages.Checkout />}></Route>
                     </Route>
 
                     <Route path="/admin" element={<PrivateComponent component={<Pages.AdminLayout />} />}>

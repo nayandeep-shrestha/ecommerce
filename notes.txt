@@ -36,6 +36,6 @@ statefull/ class component
 // address checkValidation
 // checkout page design
 // order history of individual customer
-// nvaigate to orders page after placing order
 // filter functionality
 // review functionality
+// otp

@@ -10,11 +10,15 @@ import BrandProducts from "./brand-product/brandProduct.page"
 import ProductDetail from "./product-detail/productDetail"
 import Cart from "./cart/cart.page"
 import Checkout from "./checkout/checkout.page"
+import ForgotPassword from "./auth/forget-password/forget-password.page"
+import VerifyOTP from "./auth/verifyOTP/verifyOTP.page"
 
 const Pages ={
   HomePage,
   Login,
   Register,
+  ForgotPassword,
+  VerifyOTP,
   AdminLayout,
   HomeLayout,
   Error,

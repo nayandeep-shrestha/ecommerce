@@ -97,7 +97,7 @@ const Login = () => {
                                             </form>
                                             <hr />
                                             <div className="text-center my-2">
-                                                <NavLink to="forgot-password.html">Forgot Password?</NavLink>
+                                                <NavLink to="/login/forgot-password">Forgot Password?</NavLink>
                                             </div>
                                             <div className="text-center">
                                                 <NavLink to="/register">Create an Account!</NavLink>
