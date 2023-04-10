@@ -23,7 +23,6 @@ const ForgotPassword = () => {
                 setDisable(true)
                 let auth_svc = new AuthService()
                 let emailCheck = await auth_svc.checkUser(values)
-                console.log(emailCheck)
                 if(emailCheck){
                     navigate("/login/verify-otp/" + emailCheck.result.user_id)
                 }

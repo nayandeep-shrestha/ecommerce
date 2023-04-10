@@ -12,9 +12,11 @@ import Cart from "./cart/cart.page"
 import Checkout from "./checkout/checkout.page"
 import ForgotPassword from "./auth/forget-password/forget-password.page"
 import VerifyOTP from "./auth/verifyOTP/verifyOTP.page"
+import LoginLayout from "./layout/login.layout"
 
 const Pages ={
   HomePage,
+  LoginLayout,
   Login,
   Register,
   ForgotPassword,

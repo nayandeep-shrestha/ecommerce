@@ -13,15 +13,11 @@ const Routing = () => {
                     <Route path="/" element={<Pages.HomeLayout />}>
                         <Route index element={<Pages.HomePage />} />
                         <Route path="register" element={<Pages.Register />} />
-                        {/* <Route path="login" element={<Pages.LoginLayout />} >
+                        <Route path="login" element={<Pages.LoginLayout />} >
                             <Route index element={<Pages.Login />} />
                             <Route path="forgot-password" element={<Pages.ForgotPassword />} />
                             <Route path="verify-otp/:id" element={<Pages.VerifyOTP />} />
-                        </Route> */}
-                        <Route path="login" element={<Pages.Login />} />
-                        <Route path="login/forgot-password" element={<Pages.ForgotPassword />} />
-                        <Route path="login/verify-otp/:id" element={<Pages.VerifyOTP />} />
-
+                        </Route>
                         <Route path="search" element={<Pages.SearchPage />} />
                         <Route path="productCategory/:slug" element={<Pages.CategoryProducts />} />
                         <Route path="brand-products/:slug" element={<Pages.BrandProducts />} />

@@ -55,53 +55,50 @@ const Login = () => {
     }, [])
 
     return (
-        <>
-            <ToastContainer />
-            <div className="container">
-                {/* Outer Row */}
-                <div className="row justify-content-center">
-                    <div className="col-lg-6 col-sm-12 col-xs-9">
-                        <div className="card o-hidden border-0 shadow-lg my-5">
-                            <div className="card-body p-0">
-                                <div className="row justify-content-center">
-                                    <div className="col">
-                                        <div className="p-5">
-                                            <div className="text-center">
-                                                <h1 className="h3 text-gray-900 mb-4"  style={{fontFamily:"MetropolisSB"}}>Welcome Back!</h1>
+        <div className="container">
+            {/* Outer Row */}
+            <div className="row justify-content-center">
+                <div className="col-lg-6 col-sm-12 col-xs-9">
+                    <div className="card o-hidden border-0 shadow-lg my-5">
+                        <div className="card-body p-0">
+                            <div className="row justify-content-center">
+                                <div className="col">
+                                    <div className="p-5">
+                                        <div className="text-center">
+                                            <h1 className="h3 text-gray-900 mb-4" style={{ fontFamily: "MetropolisSB" }}>Welcome Back!</h1>
+                                        </div>
+                                        <form className="user" onSubmit={formik.handleSubmit} style={{ fontFamily: "MetropolisR" }}>
+                                            <div className="form-group">
+                                                <input type="email" className="form-control form-control-user"
+                                                    name="email" aria-describedby="emailHelp"
+                                                    placeholder="Enter Email Address..." onChange={formik.handleChange} />
+                                                <span className="text-danger">
+                                                    {formik?.errors?.email}
+                                                </span>
                                             </div>
-                                            <form className="user" onSubmit={formik.handleSubmit} style={{fontFamily:"MetropolisR"}}>
-                                                <div className="form-group">
-                                                    <input type="email" className="form-control form-control-user"
-                                                        name="email" aria-describedby="emailHelp"
-                                                        placeholder="Enter Email Address..." onChange={formik.handleChange} />
-                                                    <span className="text-danger">
-                                                        {formik?.errors?.email}
-                                                    </span>
-                                                </div>
-                                                <div className="form-group">
-                                                    <input type="password" className="form-control form-control-user"
-                                                        name="password" placeholder="Password" onChange={formik.handleChange} />
-                                                    <span className="text-danger">
-                                                        {formik?.errors?.password}
-                                                    </span>
-                                                </div>
-                                                <div className="form-group">
-                                                    <div className="custom-control custom-checkbox small">
-                                                        <input type="checkbox" className="custom-control-input" id="customCheck" />
-                                                        <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" className="btn btn-block btn-main" disabled={disable}>
-                                                    Login
-                                                </button>
-                                            </form>
-                                            <hr />
-                                            <div className="text-center my-2">
-                                                <NavLink to="/login/forgot-password">Forgot Password?</NavLink>
+                                            <div className="form-group">
+                                                <input type="password" className="form-control form-control-user"
+                                                    name="password" placeholder="Password" onChange={formik.handleChange} />
+                                                <span className="text-danger">
+                                                    {formik?.errors?.password}
+                                                </span>
                                             </div>
-                                            <div className="text-center">
-                                                <NavLink to="/register">Create an Account!</NavLink>
+                                            <div className="form-group">
+                                                <div className="custom-control custom-checkbox small">
+                                                    <input type="checkbox" className="custom-control-input" id="customCheck" />
+                                                    <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
+                                                </div>
                                             </div>
+                                            <button type="submit" className="btn btn-block btn-main" disabled={disable}>
+                                                Login
+                                            </button>
+                                        </form>
+                                        <hr />
+                                        <div className="text-center my-2">
+                                            <NavLink to="/login/forgot-password">Forgot Password?</NavLink>
+                                        </div>
+                                        <div className="text-center">
+                                            <NavLink to="/register">Create an Account!</NavLink>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +107,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 export default Login
