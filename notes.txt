@@ -33,8 +33,6 @@ statefull/ class component
 
 
 ------------Remaining Work-----------------
-// address checkValidation
-// checkout page design
 // order history of individual customer
 // filter functionality
 // review functionality

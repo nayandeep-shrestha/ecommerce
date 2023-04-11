@@ -4,8 +4,6 @@ import { toast } from "react-toastify"
 import { useEffect, useState } from "react"
 import AuthService from "../../../services/auth.service"
 import * as Yup from "yup"
-import { RiEyeCloseLine } from "react-icons/ri"
-import { IoEye } from "react-icons/io5"
 import Password from "../../../components/auth/password.component"
 
 const Register = () => {
@@ -16,6 +14,7 @@ const Register = () => {
     mobile: Yup.string().required(),
     email: Yup.string().email().required(),
     password: Yup.string().required().matches(/[a-zA-Z0-9]/).min(8),
+    address: Yup.string().required(),
     role: Yup.string().nullable(),
     status: Yup.string().nullable()
   })
@@ -25,6 +24,7 @@ const Register = () => {
       mobile: "",
       email: "",
       password: "",
+      address: "",
       role: "customer",
       status: "active"
     },
@@ -53,23 +53,6 @@ const Register = () => {
       navigate("/");
     }
   }, [])
-  let passwordView =(e)=>{
-    // console.log(e)
-    e.preventDefault()
-    var type= document.getElementById("password")
-    if(type.type === "password"){
-      type.type = "text"
-      document.getElementById("show-pass").style.display="none"
-      document.getElementById("hide-pass").style.display="block"
-    }else{
-      type.type = "password"
-      document.getElementById("show-pass").style.display="block"
-      document.getElementById("hide-pass").style.display="none"
-    }
-   
-    // document.getElementById("show-pass").style.display="none"
-    // document.getElementById("hide-pass").style.display="block"
-  }
   return (
     <>
       <div className="container">
@@ -107,6 +90,14 @@ const Register = () => {
                             name="email" placeholder="Enter Email Address..." onChange={formik.handleChange} />
                           <span className="text-danger">
                             {formik?.errors?.email}
+                          </span>
+                        </div>
+                        <div className="form-group">
+                          <label className="ml-3">Address</label>
+                          <input type="text" className="form-control form-control-user"
+                            name="address" placeholder="Enter your address...(Kupondole, Lalitpur-1)" onChange={formik.handleChange} />
+                          <span className="text-danger">
+                            {formik?.errors?.address}
                           </span>
                         </div>
                         <Password label={"Password"} name={"password"} id={"password"} error={formik?.errors?.password} handleChange={formik.handleChange} placeholder="Enter your password"/>

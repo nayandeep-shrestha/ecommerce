@@ -70,6 +70,7 @@ const ProductDetail = () => {
     e.preventDefault()
     let currentProduct ={
       product_id: productDetail._id,
+      name: productDetail.title,
       quantity: quantity
     }
     dispatch(setDetail(currentProduct))

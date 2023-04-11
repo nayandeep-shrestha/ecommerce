@@ -45,6 +45,20 @@ const OrderModelDef = new mongoose.Schema({
     is_paid:{
         type: Boolean,
         default: false
+    },
+    shipping:{
+        address:{
+            type:String,
+            required: true
+        },
+        email:{
+            type: String,
+            requried: true
+        },
+        mobile:{
+            type: Number,
+            required: true
+        },
     }
 })
 const OrderModel = mongoose.model("Order", OrderModelDef)

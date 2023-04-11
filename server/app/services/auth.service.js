@@ -19,6 +19,16 @@ class AuthService {
             throw "Invalid email"
         }
 
+        if(!data.address){
+            throw "Address field is required"
+        }else if (!(String(data.address)
+            .toLowerCase()
+            .match(
+                /^[#.0-9a-zA-Z\s,-]+$/
+            ))) {
+            throw "Invalid address"
+        }
+
         if (!data.mobile) {
             throw "Mobile no. is required"
         } else if (!(String(data.mobile).match(/^(\+977)?[9][6-9]\d{8}$/))) {

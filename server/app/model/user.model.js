@@ -25,6 +25,10 @@ const UserSchemaDef = new mongoose.Schema({
         enum: ["customer", "seller"],
         default: "customer"
     },
+    address:{
+        type: String,
+        required: true,
+    },
     status: {
         type: String,
         required: true,

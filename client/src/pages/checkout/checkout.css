@@ -1,14 +1,68 @@
-.alert-box{
-    color: #842029;
-    background-color: #f8d7da;
-    position: relative;
-    padding: 1.5rem;
+.checkout-wrapper {
+    width: 95%;
+    margin-left: 5%;
+    color: #333e48;
+}
+/*---------------checkout address-----------------------------*/
+.checkout-address{
+    padding: 1.5rem 0rem 0.8rem 2rem;
+    margin-bottom: 3rem;
+    width:90%;
+    box-shadow: 2px 2px 5px 1px #cbcbcb
+}
+.checkout-address-item{
+    display: flex;
+    justify-content: space-between;
+    width:30%;
     margin-bottom: 1rem;
-    border: 1px solid #f5c2c7;
-    border-radius: 0.25rem;
-    text-align: center;
-    font-family: MetropolisL;
-    font-size: 1.5rem;
-    display: none;
+}
+.checkout-address-item .title{
+    font-size: 1.3rem;
+}
+.checkout-address-item .input-box{
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    font-family: MetropolisR;
+}
+.checkout-address-item .disable{
+    border:1px solid black
+}
+.checkout-address-item .edit-btn{
+    color:rgb(0, 102, 255);
+}
+.checkout-address-item .edit-btn:hover{
+    text-decoration: underline;
+}
+/*----------------checkout bill---------------------*/
+.checkout-bills .divider {
+    width: 91%;
+    color: #818181;
+}
+.order-summary {
+    display: block;
+    width: 475px;
+    margin-top:1.2rem;
+    margin-left: 59%;
+    font-size: 1.2rem;
+    color: #333e48;
+    font-family: MetropolisR;
+}
+.order-summary .divider{
+    width: 100%;
+}
+.order-data {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.8rem;
 }
 
+.order-data-title {
+    font-family: MetropolisSB;
+}
+
+.place-order {
+    margin-top: 0rem;
+    width: 100%;
+}

@@ -19,7 +19,7 @@ class AuthService extends HttpRequestService {
                 name: user_data.result.detail.name,
                 email: user_data.result.detail.email,
                 role: user_data.result.detail.role,
-                id: user_data.result.detail._id
+                id: user_data.result.detail._id,
             }
         } catch (err) {
             throw err

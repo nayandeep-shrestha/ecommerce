@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 // import { otpEmail } from "../../../reducers/otp.slicer"
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 import AuthService from "../../../services/auth.service"
 
 const ForgotPassword = () => {
