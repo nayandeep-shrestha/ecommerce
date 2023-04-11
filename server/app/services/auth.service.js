@@ -93,14 +93,14 @@ class AuthService {
                 to: data.email,
                 subject: "Verify Your Email",
                 text: `Hi ${data.name}`,
-                html: `<p>Please enter below mentioned 4 digit code into the Email Verification page.</p><p>The OTP <b>expires after 2 mins</b></p><p style="text-align:center; color:#ff5e36; font-size:30px"><b>${otp}</b></p>`
+                html: `<p>Please enter below mentioned 4 digit code into the Email Verification page.</p><p>The OTP <b>expires after 1:30 mins</b></p><p style="text-align:center; color:#ff5e36; font-size:30px"><b>${otp}</b></p>`
             })
             const hashedOTP = bcrypt.hashSync(otp, 10)
             let otpRecord = {
                 user_id: data._id,
                 otp: hashedOTP,
                 created_at: Date.now(),
-                expires_at: Date.now() + 120000
+                expires_at: Date.now() + 90000
             };
             let otpData = new OTPModel(otpRecord)
             let res = await otpData.save()
@@ -110,15 +110,6 @@ class AuthService {
             throw error
         }
     }
-    // registerOTP = async (data) => {
-    //     try {
-    //         let otpData = new OTPModel(data)
-    //         let res = await otpData.save()
-    //         return res
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
     verify = async ({ id, otp }) => {
         try {
             const otpVerifiedRecord = await OTPModel.find({

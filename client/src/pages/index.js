@@ -13,6 +13,7 @@ import Checkout from "./checkout/checkout.page"
 import ForgotPassword from "./auth/forget-password/forget-password.page"
 import VerifyOTP from "./auth/verifyOTP/verifyOTP.page"
 import LoginLayout from "./layout/login.layout"
+import ChangePW from "./auth/change-password/changePW.page"
 
 const Pages ={
   HomePage,
@@ -21,6 +22,8 @@ const Pages ={
   Register,
   ForgotPassword,
   VerifyOTP,
+  ChangePW,
+
   AdminLayout,
   HomeLayout,
   Error,

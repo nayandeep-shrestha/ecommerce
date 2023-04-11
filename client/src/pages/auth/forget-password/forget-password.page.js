@@ -38,7 +38,6 @@ const ForgotPassword = () => {
     })
     return (
         <>
-        <ToastContainer />
         <div className="container">
             {/* Outer Row */}
             <div className="row justify-content-center">

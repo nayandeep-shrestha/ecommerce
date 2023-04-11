@@ -1,12 +1,15 @@
-import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import AuthService from "../../../services/auth.service"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 
 const VerifyOTP = () => {
     let [disable, setDisable] = useState(false)
+    const [minutes, setMinutes] = useState(1);
+    const [seconds, setSeconds] = useState(30);
+    let navigate = useNavigate()
     let params = useParams()
     const schema = Yup.object({
         otp: Yup.string().required().length(4, "Must be four characters")
@@ -25,7 +28,9 @@ const VerifyOTP = () => {
                 }
                 let auth_svc = new AuthService()
                 let verification = await auth_svc.otpVerify(otpData)
-                console.log(verification)
+                if(verification.status){
+                    navigate("/login/change-password/"+ verification.result)
+                }
             } catch (err) {
                 console.log("Respone: ", err)
                 toast.error(err.msg)
@@ -38,22 +43,40 @@ const VerifyOTP = () => {
     })
     const resend = async () => {
         try {
+            setMinutes(1);
+            setSeconds(30);
             let auth_svc = new AuthService()
-            let id={
-                id:params.id
+            let id = {
+                id: params.id
             }
-            let reOTP = await auth_svc.resendOTP(id)
-            console.log(reOTP)
+            await auth_svc.resendOTP(id)
         } catch (err) {
             console.log("Respone: ", err)
             toast.error(err.msg)
-        } finally {
-           
         }
     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
+
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(interval);
+                } else {
+                    setSeconds(59);
+                    setMinutes(minutes - 1);
+                }
+            }
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [seconds]);
     return (
         <>
-            <ToastContainer />
             <div className="container">
                 {/* Outer Row */}
                 <div className="row justify-content-center">
@@ -75,12 +98,31 @@ const VerifyOTP = () => {
                                                         {formik?.errors?.otp}
                                                     </span>
                                                 </div>
-                                              
+
                                                 <button type="submit" className="btn btn-block btn-main" disabled={disable}>
                                                     Verify Code
                                                 </button>
                                             </form>
-                                            <button type="button" onClick={resend}>Resend</button>
+                                            <div className="countdown-text">
+                                                {seconds > 0 || minutes > 0 ? (
+                                                    <p>
+                                                        Time Remaining: {minutes < 10 ? `0${minutes}` : minutes}:
+                                                        {seconds < 10 ? `0${seconds}` : seconds}
+                                                    </p>
+                                                ) : (
+                                                    <p>Didn't recieve code?</p>
+                                                )}
+
+                                                <button
+                                                    disabled={seconds > 0 || minutes > 0}
+                                                    style={{
+                                                        color: seconds > 0 || minutes > 0 ? "#DFE3E8" : "#FF5630",
+                                                    }}
+                                                    onClick={resend}
+                                                >
+                                                    Resend OTP
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

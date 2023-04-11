@@ -1,12 +1,13 @@
 import { useFormik } from "formik"
 import { NavLink, useNavigate } from "react-router-dom"
 import * as Yup from "yup"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
 import AuthService from "../../../services/auth.service"
 import { useDispatch } from "react-redux";
 import { userStore } from "../../../reducers/user.slicer";
+import Password from "../../../components/auth/password.component";
 
 const Login = () => {
     let [disable, setDisable] = useState(false)
@@ -76,13 +77,7 @@ const Login = () => {
                                                     {formik?.errors?.email}
                                                 </span>
                                             </div>
-                                            <div className="form-group">
-                                                <input type="password" className="form-control form-control-user"
-                                                    name="password" placeholder="Password" onChange={formik.handleChange} />
-                                                <span className="text-danger">
-                                                    {formik?.errors?.password}
-                                                </span>
-                                            </div>
+                                            <Password name="password" id="password" error={formik?.errors?.password} handleChange={formik.handleChange} placeholder="Password"/>
                                             <div className="form-group">
                                                 <div className="custom-control custom-checkbox small">
                                                     <input type="checkbox" className="custom-control-input" id="customCheck" />

@@ -18,6 +18,7 @@ router.post("/register",upload_path, uploader.single('image'), auth.register )
 router.post("/check", auth.checkUser)
 router.post('/verifyOTP', auth.verifyOTP)
 router.post('/resendOTP', auth.resendOTP)
+router.post('/changePassword', auth.changePw)
 
 router.get("/me", loginCheck,  auth.getLoggedInUser)
 

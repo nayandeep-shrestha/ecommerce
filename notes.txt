@@ -38,4 +38,3 @@ statefull/ class component
 // order history of individual customer
 // filter functionality
 // review functionality
-// otp

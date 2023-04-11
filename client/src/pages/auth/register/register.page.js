@@ -1,11 +1,12 @@
 import { useFormik } from "formik"
 import { NavLink, useNavigate } from "react-router-dom"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 import { useEffect, useState } from "react"
 import AuthService from "../../../services/auth.service"
 import * as Yup from "yup"
 import { RiEyeCloseLine } from "react-icons/ri"
 import { IoEye } from "react-icons/io5"
+import Password from "../../../components/auth/password.component"
 
 const Register = () => {
   let navigate = useNavigate()
@@ -71,7 +72,6 @@ const Register = () => {
   }
   return (
     <>
-      <ToastContainer />
       <div className="container">
         {/* Outer Row */}
         <div className="row justify-content-center">
@@ -109,22 +109,8 @@ const Register = () => {
                             {formik?.errors?.email}
                           </span>
                         </div>
-                        <div className="form-group">
-                          <label className="ml-3">Password</label>
-                          <div className="pass-wrap form-control form-control-user" style={{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
-                            <input type="password" style={{border:"none", background:"transparent", outline:"none"}}
-                              name="password" id="password" placeholder="At least 8 characters" onChange={formik.handleChange} />
-                            <button onClick={passwordView} style={{cursor:"pointer"}} s>
-                              <RiEyeCloseLine id="show-pass" style={{display:"block"}} size={30} color="gray"/>
-                              <IoEye id="hide-pass" style={{display:"none"}} size={30} color="gray"/>
-                            </button>
-                            
-                            {/* <IoEye /> */}
-                          </div>
-                          <span className="text-danger">
-                            {formik?.errors?.password}
-                          </span>
-                        </div>
+                        <Password label={"Password"} name={"password"} id={"password"} error={formik?.errors?.password} handleChange={formik.handleChange} placeholder="Enter your password"/>
+                        <li className="ml-2 mb-3 mt-0" style={{fontSize:"13px"}}>Password must be at least 8 characters long including at least one digit</li>
                         <div className="form-group">
                           <label className="ml-3">Role</label>
                           <select className="form-control" name="role" defaultValue={formik.values.role} onChange={formik.handleChange} >

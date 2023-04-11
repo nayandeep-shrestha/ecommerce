@@ -17,6 +17,7 @@ const Routing = () => {
                             <Route index element={<Pages.Login />} />
                             <Route path="forgot-password" element={<Pages.ForgotPassword />} />
                             <Route path="verify-otp/:id" element={<Pages.VerifyOTP />} />
+                            <Route path="change-password/:id" element={<Pages.ChangePW />} />
                         </Route>
                         <Route path="search" element={<Pages.SearchPage />} />
                         <Route path="productCategory/:slug" element={<Pages.CategoryProducts />} />

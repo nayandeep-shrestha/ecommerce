@@ -4,6 +4,7 @@ const API_ENDPOINTS ={
     checkUser: "/auth/check",
     otpVerify:"/auth/verifyOTP",
     resendOTP:"/auth/resendOTP",
+    changePw:"/auth/changePassword",
     me:"/auth/me",
     banner:"/banner",
     brand:"/brand",

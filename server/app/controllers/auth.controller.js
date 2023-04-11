@@ -5,41 +5,41 @@ const JWT = require("jsonwebtoken")
 const Config = require("../../config/config")
 const sendEmail = require("../services/mail.service")
 const UserModel = require("../model/user.model")
-class AuthController{
-    constructor(){
+class AuthController {
+    constructor() {
         this.auth_svc = new AuthService()
     }
     login = async (req, res, next) => {
-       try{
-            let data= req.body
-            let user= await this.auth_svc.loginUser(data.email, data.password)
-            if(user){
-                if(bcrypt.compareSync(data.password, user.password)){
+        try {
+            let data = req.body
+            let user = await this.auth_svc.loginUser(data.email, data.password)
+            if (user) {
+                if (bcrypt.compareSync(data.password, user.password)) {
                     res.json({
-                        result:{
+                        result: {
                             detail: user,
-                            token: JWT.sign({id: user._id}, Config.JWT_SECRET)
+                            token: JWT.sign({ id: user._id }, Config.JWT_SECRET)
                         },
                         status: true,
                         msg: "Logged in successfully"
                     })
-                }else{
+                } else {
                     throw "Credentials does not match"
                 }
-            }else{
+            } else {
                 throw "User does not exist"
             }
-       }catch(error){
+        } catch (error) {
             next({
-                status:400,
-                msg:error
+                status: 400,
+                msg: error
             })
-       }
+        }
     }
     register = async (req, res, next) => {
-        try{
-            let data= req.body
-            if(req.file){
+        try {
+            let data = req.body
+            if (req.file) {
                 data.image = req.file.filename
             }
             await this.auth_svc.validateRegisterData(data)
@@ -53,14 +53,14 @@ class AuthController{
                 html: `<p>Dear ${data.name}, your account has been successfully registered</p>`
             })
             res.json({
-                result:{response: response},                
+                result: { response: response },
                 status: true,
-                msg:"Registered user successfully"
+                msg: "Registered user successfully"
             })
 
-        }catch(error){
+        } catch (error) {
             next({
-                status: 400, 
+                status: 400,
                 msg: error
             })
         }
@@ -72,14 +72,14 @@ class AuthController{
             msg: "Logged in user fetched"
         })
     }
-    checkUser = async(req,res,next) => {
-        try{
+    checkUser = async (req, res, next) => {
+        try {
             let data = await this.auth_svc.checkMail(req.body.email)
-            if(!data){
+            if (!data) {
                 throw "Email not found"
             }
-            else{
-                let sendOTP= await this.auth_svc.sendOTP(data)
+            else {
+                let sendOTP = await this.auth_svc.sendOTP(data)
                 res.json({
                     result: {
                         user_id: data._id,
@@ -89,20 +89,20 @@ class AuthController{
                     message: "Verification email sent"
                 })
             }
-        }catch(error){
+        } catch (error) {
             next({
-                status: 400, 
+                status: 400,
                 msg: error
             })
         }
     }
-    verifyOTP = async(req,res,next) => {
+    verifyOTP = async (req, res, next) => {
         try {
-            let {id, otp} = req.body
-            if(!id || !otp){
+            let { id, otp } = req.body
+            if (!id || !otp) {
                 throw "Empty otp details are not allowed"
-            }else{
-                let verifiedData = await this.auth_svc.verify({id,otp})
+            } else {
+                let verifiedData = await this.auth_svc.verify({ id, otp })
                 res.json({
                     result: verifiedData,
                     status: true,
@@ -111,18 +111,18 @@ class AuthController{
             }
         } catch (error) {
             next({
-                status: 400, 
+                status: 400,
                 msg: error
             })
         }
     }
-    resendOTP = async(req,res,next) =>{
+    resendOTP = async (req, res, next) => {
         try {
-            let id= req.body.id
-            if(!id){
+            let id = req.body.id
+            if (!id) {
                 throw "Empty details are not allowed"
-            }else{
-                await OTPModel.deleteMany({user_id:id})
+            } else {
+                await OTPModel.deleteMany({ user_id: id })
                 let user = await UserModel.findOne({
                     _id: id
                 })
@@ -139,7 +139,31 @@ class AuthController{
             }
         } catch (error) {
             next({
-                status: 400, 
+                status: 400,
+                msg: error
+            })
+        }
+    }
+    changePw = async (req, res, next) => {
+        try {
+            let hashedpassword = bcrypt.hashSync(req.body.password, 10)
+            let result = await UserModel.findByIdAndUpdate(req.body.id, {
+                $set: {
+                    password: hashedpassword
+                }
+            })
+            if (result) {
+                res.json({
+                    result: {
+                        email: result.email
+                    },
+                    status: true,
+                    message: "Password changed successfully"
+                })
+            }
+        } catch (error) {
+            next({
+                status: 400,
                 msg: error
             })
         }
