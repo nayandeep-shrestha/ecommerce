@@ -9,6 +9,7 @@ import {CategoryList, CategoryCreate, CategoryEdit} from "./admin/category/index
 import {UserList, UserCreate, UserEdit} from "./admin/user/index"
 import {ProductList, ProductCreate, ProductEdit} from "./admin/product/index"
 import HomeComponent from "./home-page/index"
+import Orders from "./customer/orders.component";
 
 const Components ={
     NavBar,
@@ -35,7 +36,8 @@ const Components ={
     ProductEdit,
     ProductList,
 
-    HomeComponent
+    HomeComponent,
+    Orders
     
 }
 

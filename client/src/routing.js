@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Components from "./components"
 import PrivateComponent from "./components/auth/private-routes.component"
+import CustomerComponent from "./components/auth/customer-routes.component"
 import Pages from "./pages"
 import { ToastContainer } from "react-toastify"
 
@@ -25,6 +26,9 @@ const Routing = () => {
                         <Route path="products/:id" element={<Pages.ProductDetail />} />
                         <Route path="cart" element={<Pages.Cart />}></Route>
                         <Route path="checkout" element={<Pages.Checkout />}></Route>
+                        <Route path="customer" element={<CustomerComponent component={<Pages.CustomerLayout/>} />}>
+                            <Route path="orders" element={<Components.Orders/>}/>
+                        </Route> 
                     </Route>
 
                     <Route path="/admin" element={<PrivateComponent component={<Pages.AdminLayout />} />}>

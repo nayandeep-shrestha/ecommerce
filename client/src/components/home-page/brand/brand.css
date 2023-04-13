@@ -1,10 +1,4 @@
-/* .divider{
-    content: ' ';
-    width: 90%;
-    height: 1px;
-    background: #d8d7d7;
-    margin: 1.5rem 5%
-} */
+
 .brand-container{
     display: flex;
     justify-content: space-evenly;

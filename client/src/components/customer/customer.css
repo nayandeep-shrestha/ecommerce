@@ -1,0 +1,31 @@
+.customer .row{
+    padding-top: 2rem;
+}
+/*---------------------sidebar------------*/
+.account-navigation{
+    margin-top: 7%;
+    margin-left:2.5%
+}
+.account-navigation ul{
+    margin-left: 0;
+    border-top: 1px solid #eceeef;
+    padding-left: 0;
+}
+.account-navigation ul li{
+    list-style: none;
+    border-bottom: 1px solid #eceeef;
+    position: relative;
+    padding:0.5rem 0 0.5rem 1rem;
+}
+.account-navigation ul li a{
+    padding: 0.857em 0;
+    display: block;
+    color: #333e48;
+    font-size: 1.2rem;
+    font-family: MetropolisR;
+}
+.account-navigation ul li a:hover,
+.account-navigation ul li .isActive{
+    font-family: MetropolisSB;
+    text-decoration: none;
+}

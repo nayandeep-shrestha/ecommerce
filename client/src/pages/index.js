@@ -14,6 +14,7 @@ import ForgotPassword from "./auth/forget-password/forget-password.page"
 import VerifyOTP from "./auth/verifyOTP/verifyOTP.page"
 import LoginLayout from "./layout/login.layout"
 import ChangePW from "./auth/change-password/changePW.page"
+import CustomerLayout from "./layout/customer-layout.page"
 
 const Pages ={
   HomePage,
@@ -32,7 +33,9 @@ const Pages ={
   BrandProducts,
   ProductDetail,
   Cart,
-  Checkout
+  Checkout,
+
+  CustomerLayout
 }
 
 export default Pages
