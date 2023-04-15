@@ -95,5 +95,26 @@ class OrderController {
             })
         }
     }
+    getOrderListByUserId = async (req, res, next) => {
+        try {
+            let orderList = await OrderModel.find({
+                user_id: req.body.id
+            })
+            if(orderList){
+                res.json({
+                    result: orderList,
+                    status: true,
+                    msg: "Your cart detail"
+                })
+            }else{
+                throw "No orders have been made yet"
+            }
+        } catch (excep) {
+            next({
+                status: 400,
+                msg: excep
+            })
+        }
+    }
 }
 module.exports = OrderController

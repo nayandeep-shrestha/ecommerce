@@ -1,28 +1,16 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { NavLink } from "react-router-dom"
-import { useState, useCallback, useEffect } from "react"
-import AuthService from "../../services/auth.service"
+import { NavLink, useOutletContext } from "react-router-dom"
+import { useState} from "react"
 import UserService from "../admin/user/user.service";
 import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = () => {
     let user_svc = new UserService()
+    let profileDetails = useOutletContext()
     let [disable, setDisable] = useState(false)
     let [inputDisable, setInputDisable] = useState(true)
-    let [profileDetails, setProfileDetails] = useState()
-    const getMyProfile = useCallback(async () => {
-        try {
-            let auth_svc = new AuthService()
-            let result = await auth_svc.getMyProfile()
-            if (result) {
-                setProfileDetails(result.result)
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }, [])
     const schema = Yup.object({
         name: Yup.string().required().min(2, "Name must be at least 2 letters long"),
         email: Yup.string().email().required(),
@@ -73,9 +61,6 @@ const Profile = () => {
         document.getElementById("save-changes").style.display = "block"
         document.getElementById("edit-btn").style.display = "none"
     }
-    useEffect(() => {
-        getMyProfile()
-    }, [getMyProfile])
     return (
         <>
             <div className="col-sm-9">

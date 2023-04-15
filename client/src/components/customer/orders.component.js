@@ -1,8 +1,15 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useOutletContext } from "react-router-dom"
 import laptop from "../../assets/images/categories/computer.png"
+import { useCallback, useEffect } from "react"
 
 const Orders = () => {
-    
+    let profileDetails = useOutletContext()
+    // const getOrderList = useCallback(async() => {
+        
+    // },[])
+    // useEffect(()= >{
+    //     getOrderList()
+    // },[])
     return (
         <>
             <div className="col-sm-9">
