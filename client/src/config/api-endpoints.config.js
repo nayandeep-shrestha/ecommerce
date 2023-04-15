@@ -10,6 +10,8 @@ const API_ENDPOINTS ={
     brand:"/brand",
     category:"/category",
     user:"/user",
+    singleUser:"/user/single",
+    userPassword:'/user/changePassword',
     product:"/product"
 
 }

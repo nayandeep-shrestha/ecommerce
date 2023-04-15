@@ -4,12 +4,15 @@ import AdminDashboard from './admin/dashboard.component'
 import BannerList from "./admin/banner/banner-list.component";
 import BannerCreate from "./admin/banner/banner-create.component";
 import BannerEdit from "./admin/banner/banner-edit.component";
-import {BrandList, BrandCreate, BrandEdit} from "./admin/brand/index"
-import {CategoryList, CategoryCreate, CategoryEdit} from "./admin/category/index"
-import {UserList, UserCreate, UserEdit} from "./admin/user/index"
-import {ProductList, ProductCreate, ProductEdit} from "./admin/product/index"
-import HomeComponent from "./home-page/index"
+import {BrandList, BrandCreate, BrandEdit} from "./admin/brand/index";
+import {CategoryList, CategoryCreate, CategoryEdit} from "./admin/category/index";
+import {UserList, UserCreate, UserEdit} from "./admin/user/index";
+import {ProductList, ProductCreate, ProductEdit} from "./admin/product/index";
+import HomeComponent from "./home-page/index";
 import Orders from "./customer/orders.component";
+import Profile from "./customer/profile.component";
+import Logout from "./customer/logout.component";
+import ChangePassword from "./customer/change-password.component";
 
 const Components ={
     NavBar,
@@ -37,7 +40,10 @@ const Components ={
     ProductList,
 
     HomeComponent,
-    Orders
+    Orders,
+    Profile,
+    Logout,
+    ChangePassword,
     
 }
 

@@ -110,6 +110,34 @@ class UserController{
             throw ({status: 422, msg: excep})
         }
     }
+    changePass = async(req,res,next) => {
+        try {
+            let passwordData = req.body
+            if(!passwordData.curr_password || !passwordData.new_password || !passwordData.confirm_password){
+                throw "Empty password fields are not allowed"
+            }else{
+                let verification = await this.user_svc.updatePassword(passwordData, req.auth_user._id)
+                if(verification){
+                    sendEmail({
+                        to: verification.email,
+                        subject: "Password Changed",
+                        html: `<p>Dear ${verification.name},</p> <p>Your password has been changed successfully !!</p>`
+                    })
+                    res.json({
+                        result: verification.email,
+                        status: true,
+                        msg: "Password has been changed successfully"
+                    })
+                }
+            }
+            
+        } catch (error) {
+            next({
+                status: 400,
+                msg: error
+            })
+        }
+    }
 }
 
 module.exports= UserController

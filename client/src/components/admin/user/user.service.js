@@ -53,6 +53,22 @@ class UserService extends HttpRequestService{
             throw excep 
         }
     }
+    updateUserProfile= async (data,id) => {
+        try{
+            let response = await this.putRequest(API_ENDPOINTS.singleUser+"/"+id, data, {strict:true, file:true})
+            return response
+        }catch(excep){
+            throw excep 
+        }
+    }
+    changePassword = async (data) =>{
+        try{
+            let response = await this.postRequest(API_ENDPOINTS.userPassword, data, {strict:true})
+            return response
+        }catch(excep){
+            throw excep 
+        }
+    }
 }
 export const user_svc = new UserService()
 export default UserService

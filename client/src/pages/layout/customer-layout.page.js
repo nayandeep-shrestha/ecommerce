@@ -7,9 +7,7 @@ const CustomerLayout = () => {
             <div className="cart-container customer">
                 <div className="row">
                     <CustomerSideBar />
-                    <div className="col-sm-8">
-                        <Outlet />
-                    </div>
+                    <Outlet />
                 </div>
             </div>
         </section>

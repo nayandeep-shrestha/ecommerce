@@ -34,7 +34,7 @@ const Login = () => {
                         toast.success("Welcome to user pannel")
                         navigate("/" + loginResponse.role)
                     } else if (loginResponse.role === 'customer') {
-                        navigate("/")
+                        navigate("/customer/profile")
                     }
                 }
             } catch (err) {

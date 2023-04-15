@@ -28,6 +28,9 @@ const Routing = () => {
                         <Route path="checkout" element={<Pages.Checkout />}></Route>
                         <Route path="customer" element={<CustomerComponent component={<Pages.CustomerLayout/>} />}>
                             <Route path="orders" element={<Components.Orders/>}/>
+                            <Route path="profile" element={<Components.Profile/>}/>
+                            <Route path="logout" element={<Components.Logout/>}/>
+                            <Route path="change-password" element={<Components.ChangePassword/>}/>
                         </Route> 
                     </Route>
 

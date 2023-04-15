@@ -18,5 +18,6 @@ router
         .put(loginCheck, isAdmin, upload_path, uploader.single('image'), user_ctrl.updateContent)
         .get(loginCheck, isAdmin, user_ctrl.getById)
         .delete(loginCheck, isAdmin, user_ctrl.deleteContent)
-
+router.put('/single/:id', loginCheck,upload_path, uploader.single('image'), user_ctrl.updateContent)
+router.post('/changePassword', loginCheck, user_ctrl.changePass)
 module.exports = router 

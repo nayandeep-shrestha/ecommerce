@@ -1,4 +1,5 @@
 const Joi = require("joi")
+const bcrypt = require("bcrypt")
 const UserModel = require("../model/user.model")
 class UserService{
     getAllUsers = async (id) => {
@@ -17,7 +18,10 @@ class UserService{
             if(isEdit){
                 schema = Joi.object({
                     name: Joi.string().required().min(3),
+                    email:Joi.string().email().required(),
                     image: Joi.string(),
+                    mobile: Joi.string().required(),
+                    address: Joi.string().required().regex( /^[#.0-9a-zA-Z\s,-]+$/),
                     role: Joi.string().valid("seller","customer"),
                     status: Joi.string().valid("active","inactive").default("inactive")                
                 })
@@ -26,6 +30,8 @@ class UserService{
                     name: Joi.string().required().min(3),
                     email:Joi.string().email().required(),
                     image: Joi.string(),
+                    mobile: Joi.string().required().length(10,"Mobile number must be 10 digits."),
+                    address: Joi.string().required().matches( /^[#.0-9a-zA-Z\s,-]+$/),
                     role: Joi.string().valid("seller","customer"),
                     password:Joi.string().required().min(8),
                     status: Joi.string().valid("active","inactive").default("inactive")                
@@ -79,6 +85,34 @@ class UserService{
             throw "Content already deleted"
         }
         return data
+        }catch(excep){
+            throw excep
+        }
+    }
+    updatePassword= async(passwordData, id)=>{
+        try{
+            const userData = await UserModel.find({
+                _id: id
+            })
+            if(userData.length <= 0){
+                throw "Account not found"
+            }else{
+                const hashedpassword = userData[0].password
+                const user_id = userData[0]._id
+                if(bcrypt.compareSync(passwordData.curr_password, hashedpassword)){
+                    const new_password = bcrypt.hashSync(passwordData.new_password,10)
+                    let result = await UserModel.findByIdAndUpdate(user_id, {
+                            password: new_password
+                    })
+                    if(result){
+                        return result
+                    }else{
+                        throw "Password was not changed. Please try again"
+                    }
+                }else{
+                    throw "Password didn't match"
+                }
+            }
         }catch(excep){
             throw excep
         }

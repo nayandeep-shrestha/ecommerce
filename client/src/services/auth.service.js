@@ -72,7 +72,7 @@ class AuthService extends HttpRequestService {
     }
     changePw = async (updatedDetails) => {
         try {
-            let response = await this.postRequest(API_ENDPOINTS.changePw, updatedDetails)
+            let response = await this.putRequest(API_ENDPOINTS.changePw, updatedDetails)
             return response
         } catch (error) {
             throw error

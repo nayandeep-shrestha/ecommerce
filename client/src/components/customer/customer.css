@@ -1,10 +1,9 @@
 .customer .row{
-    padding-top: 2rem;
+    padding: 10px 35px 0 30px;
 }
 /*---------------------sidebar------------*/
 .account-navigation{
     margin-top: 7%;
-    margin-left:2.5%
 }
 .account-navigation ul{
     margin-left: 0;
@@ -23,9 +22,109 @@
     color: #333e48;
     font-size: 1.2rem;
     font-family: MetropolisR;
+    display: flex;
+    justify-content: space-between;
 }
 .account-navigation ul li a:hover,
-.account-navigation ul li .isActive{
+.account-navigation ul li a:hover .icon,
+.account-navigation ul li .active .icon,
+.account-navigation ul li .active{
     font-family: MetropolisSB;
     text-decoration: none;
+    color: #252525;
+}
+.account-navigation ul li a .icon{
+    color: #949494;
+}
+
+
+/*---------------Order component---------------*/
+.order-list{
+    overflow: hidden;
+    margin-left: 1.25rem;
+    color:#333e48
+}
+.order-filter{
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    margin:20px 0 12px 0;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    color: #333e48;
+}
+.order-filter-select{
+    width: 180px;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 8px;
+    line-height: 26px;
+    padding-left: 8px;
+    padding-right: 25px;
+    font-size: 14px;
+    border-width: 1px;
+}
+.order{
+    border: 1px solid #eceeef;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 15px 20px; 
+    background-color: #fff;
+}
+.order-info{
+    min-height: 50px;
+    border-bottom: 1px solid #dadada;
+    display: flex;
+    justify-content: space-between;
+}
+.order-info-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: left;
+}
+.order-info-1{
+ font-size: 1.15rem;   
+}
+.order-info-2{
+    font-size: 1rem;   
+    font-family: MetropolisR;
+}
+.order-info-right{
+    font-size: 1.2rem;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 32px;
+    color: rgb(26, 156, 183);
+}
+
+.order-item{
+    font-family: MetropolisR;
+}
+.order-item .item-name,
+.order-item .item-quantity,
+.order-item .item-deliveryDate
+{
+    font-size: 1.2rem;
+}
+.order-item .item-name a{
+    width:300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-word;
+}
+.order-item .item-status .status{
+    background: #eceeef;
+    padding: 5px 10px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+}
+.order-item .item-deliveryDate
+{
+    padding-left: 20px;
+    padding-right: 0;
 }

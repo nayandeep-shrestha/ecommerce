@@ -22,9 +22,20 @@ const loginCheck = async(req, res, next) => {
                 let data = JWT.verify(token, Config.JWT_SECRET)
                 if (data) {
                     let user =await UserModel.findById(data.id)
+                    let user_data= {
+                        _id: user._id,
+                        name: user.name,
+                        email: user.email,
+                        mobile: user.mobile,
+                        role: user.role,
+                        address: user.address,
+                        status: user.status,
+                        createdAt: user.createdAt,
+                        updatedAt: user.updatedAt,
+                    }
                     if(user){
                         //logged in user
-                        req.auth_user= user
+                        req.auth_user= user_data
                         next()
                     }else{
                         next({status: 404, msg:"User does not exist"})
