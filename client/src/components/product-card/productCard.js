@@ -2,8 +2,12 @@ import './productCard.css'
 import { NavLink } from "react-router-dom"
 import ReactStars from "react-rating-stars-component";
 import NoImage from "../../assets/images/image-not-found.png"
+import {useDispatch} from "react-redux"
+import {setDetail} from "../../reducers/cart.slicer"
 import { AiFillHeart } from "react-icons/ai"
+
 const ProductCard = ({ product }) => {
+    let dispatch = useDispatch()
     const options = {
         edit: false,
         color: "rgba(20,20,20,0.3)",
@@ -11,6 +15,15 @@ const ProductCard = ({ product }) => {
         value: 3,
         isHalf: true,
     }
+    const addToCart = (e) => {
+        e.preventDefault()
+        let currentProduct ={
+          product_id: product._id,
+          name: product.title,
+          quantity: 1
+        }
+        dispatch(setDetail(currentProduct))
+      }
     // console.log(process.env.REACT_APP_IMAGE_URL+"/product/" +product.images)
     return (
         <div className="product-item">
@@ -38,10 +51,9 @@ const ProductCard = ({ product }) => {
                     </div>
                     <div className="product-cart">
                         <a href='/' className="product-wishlist">
-
                             <AiFillHeart size={20} />
                         </a>
-                        <button className="cart-button">
+                        <button className="cart-button" onClick={addToCart}>
                             <span className="cart-text">Add to cart</span>
                         </button>
                     </div>

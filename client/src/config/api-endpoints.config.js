@@ -6,13 +6,18 @@ const API_ENDPOINTS ={
     resendOTP:"/auth/resendOTP",
     changePw:"/auth/changePassword",
     me:"/auth/me",
+
     banner:"/banner",
     brand:"/brand",
     category:"/category",
+    
     user:"/user",
     singleUser:"/user/single",
     userPassword:'/user/changePassword',
-    product:"/product"
+    
+    product:"/product",
 
+    order:"/order",
+    orderList:"/order/list"
 }
 export default API_ENDPOINTS

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react"
-import { NavLink, useNavigate, useSearchParams} from "react-router-dom"
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { category_svc } from "../admin/category/category.service"
 import { userStore } from "../../reducers/user.slicer"
@@ -121,16 +121,16 @@ const NavBar = () => {
                                             boxShadow: "0px 2px 2px 1px gray"
                                         }
                                     }>
-                                        <div className="account-drop-item" style={{ textAlign: "left",  fontSize: "1.2rem" }}>
-                                            <p style={{margin:"0",paddingLeft: "1rem"}}>My account</p>
-                                        </div>
-                                        <div className="divider" style={{margin:"0 0 0.5rem 0"}}></div>
                                         <div className="account-drop-item" style={{ textAlign: "left", fontSize: "1.2rem" }}>
-                                            <p style={{margin:"0", paddingLeft: "1rem"}}>Orders</p>
+                                            <NavLink to="/customer/profile" style={{ margin: "0", paddingLeft: "1rem" }}>My account</NavLink>
                                         </div>
-                                        <div className="divider" style={{margin:"0 0 0.5rem 0"}}></div>
+                                        <div className="divider" style={{ margin: "0 0 0.5rem 0" }}></div>
                                         <div className="account-drop-item" style={{ textAlign: "left", fontSize: "1.2rem" }}>
-                                            <button onClick={handleLogout} style={{paddingLeft: "1rem"}}>Logout</button>
+                                            <NavLink to="/customer/orders" style={{ margin: "0", paddingLeft: "1rem" }}>Orders</NavLink>
+                                        </div>
+                                        <div className="divider" style={{ margin: "0 0 0.5rem 0" }}></div>
+                                        <div className="account-drop-item" style={{ textAlign: "left", fontSize: "1.2rem" }}>
+                                            <button onClick={handleLogout} style={{ paddingLeft: "1rem" }}>Logout</button>
                                         </div>
                                     </div>
                                 </button>
@@ -210,9 +210,45 @@ const NavBar = () => {
                             <li className="nav-item">
                                 <NavLink className="navlink" to="/"><span className="link-title">HOME</span></NavLink>
                             </li>
-                            <li className="nav-item">
-                                <button type="button" className="navlink dropdown">
-                                    <span className="link-title" onMouseOver={show}>CATEGORIES <IoIosArrowDown /></span>
+                            <li className="nav-item" onMouseOver={() => {
+                                let x = document.getElementById("category-drop")
+                                if (x.style.display === "none")
+                                    x.style.display = "block"
+                            }} onMouseLeave={() => {
+                                let x = document.getElementById("category-drop")
+                                if (x.style.display === "block")
+                                    x.style.display = "none"
+                            }}>
+                                <button type="button" className="navlink dropdown" >
+                                    <span className="link-title">CATEGORIES <IoIosArrowDown /></span>
+                                    <div className="dropdown-megamenu" id="category-drop" style={{display:"none"}}>
+                                        <div className="row menu-wrapper">
+                                            {
+                                                categories && categories.map((item, index) => (
+                                                    item.parent_id ? <></> :
+                                                        <div className="col-md-3 menu-item" key={index}>
+                                                            <h5 className="menu-title">
+                                                                {item.name}
+                                                            </h5>
+                                                            <ul className="menu-list">
+                                                                {
+                                                                    sub_categories && sub_categories.map((sub_item, index) => (
+                                                                        sub_item.parent_id.name === item.name ?
+
+                                                                            <li key={index}><NavLink className="navlink" to={`/productCategory/`}>{sub_item.name}</NavLink></li>
+
+                                                                            : <></>
+                                                                    ))
+                                                                }
+                                                            </ul>
+
+                                                        </div>
+                                                ))
+
+                                            }
+
+                                        </div>  
+                                    </div>
                                 </button>
                             </li>
                             <li className="nav-item">
@@ -224,7 +260,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                 </nav>
-                <div className={isShow ? "dropdown-megamenu dropdown-menu show" : "dropdown-megamenu dropdown-menu"} onMouseLeave={hide} style={{
+                {/* <div className={isShow ? "dropdown-megamenu dropdown-menu show" : "dropdown-megamenu dropdown-menu"} onMouseLeave={hide} style={{
                     position: "absolute",
                     inset: "0px auto auto 0px",
                     margin: "0px",
@@ -256,7 +292,7 @@ const NavBar = () => {
                         }
 
                     </div>
-                </div>
+                </div> */}
             </div>
         </header>
 

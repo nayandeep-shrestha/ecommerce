@@ -11,6 +11,14 @@ const OrderModelDef = new mongoose.Schema({
             ref: "Product",
             required: true
         },
+        product_name:{
+            type: String,
+            required:true,
+        },
+        product_image:{
+            type: String,
+            required: false,
+        },
         qty:{
             type: Number,
             required: true
@@ -59,6 +67,10 @@ const OrderModelDef = new mongoose.Schema({
             type: Number,
             required: true
         },
+    },
+    createdAt:{
+        type: Date,
+        default: Date.now(),
     }
 })
 const OrderModel = mongoose.model("Order", OrderModelDef)

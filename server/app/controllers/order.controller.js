@@ -21,7 +21,7 @@ class OrderController {
                     address: cart.address,
                     mobile: cart.mobile,
                     email: cart.email
-                }
+                },
             }
             let sub_cart = await this.order_svc.getCartItem(cart.cart)
             final_result.cart = (sub_cart.map((item) => {
@@ -29,6 +29,8 @@ class OrderController {
                 final_result.sub_total += Number(Number(current_item[0].quantity) * item.actual_price)
                 return {
                     product_id: item._id,
+                    product_name: item.title,
+                    product_image: item.images[0],
                     qty: current_item[0].quantity,
                     total_amt: Number(current_item[0].quantity) * item.actual_price
                 }
@@ -97,14 +99,15 @@ class OrderController {
     }
     getOrderListByUserId = async (req, res, next) => {
         try {
+            let id = req.auth_user._id
             let orderList = await OrderModel.find({
-                user_id: req.body.id
+                user_id: id
             })
-            if(orderList){
+            if(orderList.length > 0){
                 res.json({
                     result: orderList,
                     status: true,
-                    msg: "Your cart detail"
+                    msg: "Your order detail"
                 })
             }else{
                 throw "No orders have been made yet"

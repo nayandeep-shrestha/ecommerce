@@ -110,6 +110,10 @@
     text-transform: uppercase;
     border-radius: 5px;
 }
+.cart-button:hover{
+    color:white;
+    background: #333e48;
+}
 .cart-text{
     display: flex;
     align-items: center;
