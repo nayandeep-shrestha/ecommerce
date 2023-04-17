@@ -6,6 +6,8 @@ const Config ={
     SMTP_HOST:"smtp.mailtrap.io",
     SMTP_PORT: 465,
     SMTP_TLS: false,
-    SMTP_FROM:"noreply@gmail.com"
+    SMTP_FROM:"noreply@gmail.com",
+    GMAIL_USER:"testing.backend07@gmail.com",
+    GMAIL_PASS:"lhiwjlessphkziwy"
 }
 module.exports = Config

@@ -153,6 +153,11 @@ class AuthController {
                 }
             })
             if (result) {
+                sendEmail({
+                    to: result.email,
+                    subject: "Password Changed",
+                    html: `<p>Dear ${result.name},</p> <p>Your password has been changed successfully !!</p>`
+                })
                 res.json({
                     result: {
                         email: result.email
