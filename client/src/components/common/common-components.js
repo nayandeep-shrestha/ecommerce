@@ -60,3 +60,16 @@ export const Actions = ({ type, id, deleteAction}) => {
         </div>
     </>)
 }
+
+export const Checkbox =({label, checked, name, handleChange}) => {
+    const defaultChecked = checked ? checked : false;
+    let [isChecked, setIsChecked] = useState(defaultChecked)
+    return(
+        <label className="checkbox">
+            <input type="checkbox" name={name} id="" checked={isChecked} 
+            className={isChecked ? "checked" : ""}
+            onChange={() => {setIsChecked((prev) => !prev);  if(isChecked === false){handleChange([name])} else {handleChange("")}} } />
+            <span>{label}</span>
+        </label>
+    )
+}

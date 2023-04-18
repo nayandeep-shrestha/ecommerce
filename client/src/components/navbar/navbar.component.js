@@ -12,7 +12,6 @@ import "./navbar.css"
 import Logo from "../../assets/images/logo/logo.png"
 
 const NavBar = () => {
-    const [isShow, setShow] = useState(false);
     let [keyword, setKeyword] = useState();
     const [query, setQuery] = useSearchParams();
     let navigate = useNavigate();
@@ -30,12 +29,7 @@ const NavBar = () => {
         }
         return quantity
     })
-    const show = (e) => {
-        setShow(true);
-    }
-    const hide = (e) => {
-        setShow(false);
-    }
+    
     const handleChange = (e) => {
         setKeyword(e.target.value);
     }
