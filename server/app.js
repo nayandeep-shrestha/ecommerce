@@ -1,7 +1,7 @@
 const express= require("express")
 const cors= require("cors")
 const app = express()
-
+const PORT = process.env.PORT || 8000
 app.use(cors())
 //DB Connect
 require("./config/mongodb.config")
@@ -38,8 +38,8 @@ app.use((error, req, res, next) => {
     });
 });
 
-app.listen(8000, 'localhost', (err) => {
+app.listen(PORT, 'localhost', (err) => {
     if(!err){
-        console.log("Server is running on port: "+8000)
+        console.log("Server is running on port: "+PORT)
     }
 })

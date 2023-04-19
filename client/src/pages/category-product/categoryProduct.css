@@ -54,13 +54,15 @@
     margin: 1rem 0 1.2rem 2.5%;
     width: 90%;
 }
-
+.price-filter .btn{
+    margin-top:1rem;
+    padding:0.4rem 2rem;
+}
 .filter-list-box .single-filter-list {
     list-style-type: none;
     margin: 1rem 0 1rem 0;
     padding: 0;
 }
-
 .filter-list-box .single-filter-list .filter-list-item {
     display: flex;
     align-items: center;

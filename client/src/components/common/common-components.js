@@ -68,7 +68,7 @@ export const Checkbox =({label, checked, name, handleChange}) => {
         <label className="checkbox">
             <input type="checkbox" name={name} id="" checked={isChecked} 
             className={isChecked ? "checked" : ""}
-            onChange={() => {setIsChecked((prev) => !prev);  if(isChecked === false){handleChange([name])} else {handleChange("")}} } />
+            onChange={() => {setIsChecked((prev) => !prev);  handleChange(name,isChecked) }} />
             <span>{label}</span>
         </label>
     )

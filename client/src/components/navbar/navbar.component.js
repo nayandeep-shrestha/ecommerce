@@ -59,7 +59,7 @@ const NavBar = () => {
                 let active_categories = response.result.filter((item) => (item.status === 'active'))
                 setCategories(active_categories)
                 setSub_categories(response.result.filter((item) => (item.parent_id !== null && item.status === 'active')));
-
+// console.log(sub_categories)
             }
         } catch (error) {
             console.log(error);
@@ -222,14 +222,14 @@ const NavBar = () => {
                                                     item.parent_id ? <></> :
                                                         <div className="col-md-3 menu-item" key={index}>
                                                             <h5 className="menu-title">
-                                                                {item.name}
+                                                            <NavLink className="navlink" to={'/productCategory/' + item.slug}>{item.name}</NavLink>
                                                             </h5>
                                                             <ul className="menu-list">
                                                                 {
                                                                     sub_categories && sub_categories.map((sub_item, index) => (
                                                                         sub_item.parent_id.name === item.name ?
 
-                                                                            <li key={index}><NavLink className="navlink" to={`/productCategory/`}>{sub_item.name}</NavLink></li>
+                                                                            <li key={index}><NavLink className="navlink" to={'/productCategory/' + sub_item.slug}>{sub_item.name}</NavLink></li>
 
                                                                             : <></>
                                                                     ))
@@ -254,39 +254,6 @@ const NavBar = () => {
                         </ul>
                     </div>
                 </nav>
-                {/* <div className={isShow ? "dropdown-megamenu dropdown-menu show" : "dropdown-megamenu dropdown-menu"} onMouseLeave={hide} style={{
-                    position: "absolute",
-                    inset: "0px auto auto 0px",
-                    margin: "0px",
-                    transform: "translate3d(10px, 5px, 0px)",
-                }}>
-                    <div className="row menu-wrapper">
-                        {
-                            categories && categories.map((item, index) => (
-                                item.parent_id ? <></> :
-                                    <div className="col-md-3" key={index}>
-                                        <h5 className="menu-title">
-                                            {item.name}
-                                        </h5>
-                                        <ul className="menu-list">
-                                            {
-                                                sub_categories && sub_categories.map((sub_item, index) => (
-                                                    sub_item.parent_id.name === item.name ?
-
-                                                        <li key={index}><NavLink className="navlink" to="#">{sub_item.name}</NavLink></li>
-
-                                                        : <></>
-                                                ))
-                                            }
-                                        </ul>
-
-                                    </div>
-                            ))
-
-                        }
-
-                    </div>
-                </div> */}
             </div>
         </header>
 

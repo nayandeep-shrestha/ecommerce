@@ -14,7 +14,6 @@ const CategoryProducts = () => {
   let params = useParams()
   let [query] = useSearchParams()
   let navigate = useNavigate()
-  let [isChecked, setIsChecked] = useState(false)
   const [value, setValue] = useState([0, 250000]);
   let [category, setCategory] = useState()
   let [product, setProduct] = useState()
@@ -26,6 +25,7 @@ const CategoryProducts = () => {
   const getCategoryData = useCallback(async () => {
     try {
       let response = await category_svc.getCategoryBySlug(params.slug)
+      // console.log(response)
       if (response) {
         setCategory(response.result.category)
         setProduct(response.result.products)
@@ -36,7 +36,7 @@ const CategoryProducts = () => {
   }, [params.slug])
   useEffect(() => {
     getCategoryData();
-  }, [])
+  }, [getCategoryData])
   useEffect(() => {
     if (query.get('min') && query.get('max')) {
       let filtered = product?.filter(item => item.actual_price >= query.get('min') && item.actual_price < query.get('max'))
@@ -46,7 +46,7 @@ const CategoryProducts = () => {
         setFilterProduct(null)
       }
     }
-  }, [query])
+  }, [query,product])
   const handleFilter = (e) => {
     e.preventDefault()
     let min = document.getElementById("min").value
