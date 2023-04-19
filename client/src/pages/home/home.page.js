@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap"
 import "./home.css"
 import {TbReplace} from "react-icons/tb"
 import Components from "../../components"

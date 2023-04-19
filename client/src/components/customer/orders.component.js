@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom"
-import laptop from "../../assets/images/categories/computer.png"
 import { useCallback, useEffect, useState } from "react"
 import { order_svc } from "../../services/order.service"
 

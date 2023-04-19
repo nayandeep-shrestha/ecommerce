@@ -7,8 +7,6 @@ import { product_svc } from "../../services/product.service"
 import { resetCart } from "../../reducers/cart.slicer"
 import "./checkout.css"
 import AuthService from "../../services/auth.service"
-import { useFormik } from "formik"
-import * as Yup from "yup"
 
 const Checkout = () => {
   let [profileDetails, setProfileDetails] = useState()

@@ -1,6 +1,5 @@
 import "./products.css"
 import { NavLink } from "react-router-dom"
-import { BsArrowRightShort } from "react-icons/bs"
 import smartphones from "../../../assets/images/categories/smartphones.png"
 
 const Products = () => {

@@ -5,7 +5,6 @@ import CategoryService from "./category.service";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CategoryForm from "./category-form.component";
-import { MdContactSupport } from "react-icons/md";
 
 const CategoryEdit = () => {
 

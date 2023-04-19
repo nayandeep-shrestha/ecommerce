@@ -21,7 +21,7 @@ const BrandForm = ({submitAction, defaultValue}) => {
         formik.setValues({
             ...defaultValue
         })
-    },[defaultValue])
+    },[defaultValue, formik])
 
 
     return (<>

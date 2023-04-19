@@ -5,7 +5,6 @@ import UserService from "./user.service";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UserForm from "./user-form.component";
-import { MdContactSupport } from "react-icons/md";
 
 const UserEdit = () => {
 

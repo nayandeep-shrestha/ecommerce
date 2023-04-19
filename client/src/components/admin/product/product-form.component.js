@@ -62,21 +62,21 @@ const ProductForm = ({ submitAction, defaultValue }) => {
         if (response.status) {
             setCategories(response.result)
         }
-    })
+    },[])
 
     const getAllBrands = useCallback(async () => {
         let response = await brand_svc.getAllList()
         if (response.status) {
             setBrand(response.result)
         }
-    })
+    },[])
 
     const getAllSeller = useCallback(async () => {
         let response = await user_svc.getAllSeller()
         if (response) {
             setSeller(response)
         }
-    })
+    },[])
 
 
     const imageValidate = (e) => {
