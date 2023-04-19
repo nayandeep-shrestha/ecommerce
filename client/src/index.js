@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import rootStore from './store'
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap/dist/js/bootstrap.bundle';
 // import dotenv from "dotenv"
 // dotenv.config();
 
