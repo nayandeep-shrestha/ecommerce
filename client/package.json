@@ -20,6 +20,7 @@
     "fslightbox-react": "^1.6.2-2",
     "jquery": "^3.6.4",
     "mdb-react-ui-kit": "^5.1.0",
+    "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-data-table-component": "^7.5.3",
