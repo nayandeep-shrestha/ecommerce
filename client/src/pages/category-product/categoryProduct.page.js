@@ -95,7 +95,7 @@ const CategoryProducts = () => {
                     max={250000}
                     value={value[0]}
                     onChange={nextValue => {
-                      const [start, end] = value;
+                      const [ end] = value;
                       if (nextValue > end) {
                         return;
                       }
@@ -109,7 +109,7 @@ const CategoryProducts = () => {
                     max={250000}
                     value={value[1]}
                     onChange={nextValue => {
-                      const [start, end] = value;
+                      const [start] = value;
                       if (start > nextValue) {
                         return;
                       }

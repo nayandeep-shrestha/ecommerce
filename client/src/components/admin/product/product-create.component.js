@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import Breadcrumb from "../breadcumb.component"
 import ProductForm from "./product-form.component";
 import { useSelector } from "react-redux"
@@ -27,6 +28,7 @@ const ProductCreate = () => {
         try{
             let form_data = new FormData()
             if(data.images){
+                // eslint-disable-next-line array-callback-return
                 data.images.map((image) => {
                     form_data.append("images", image, image.name)
                 })

@@ -12,7 +12,7 @@ const ChangePassword = () => {
     let user_svc = new UserService()
     let navigate = useNavigate()
     let [disable, setDisable] = useState(false)
-    let [profileDetails, setProfileDetails] = useState()
+    let [ setProfileDetails] = useState()
     const getMyProfile = useCallback(async () => {
         try {
             let auth_svc = new AuthService()

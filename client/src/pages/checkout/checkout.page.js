@@ -84,7 +84,7 @@ const Checkout = () => {
       toast.info("You must log in first in order to checkout!!")
     }
     getMyProfile()
-  }, [getMyProfile])
+  }, [getMyProfile, navigate])
   useEffect(() => {
     if (cart && cart.length > 0) {
       getCartData(cart)

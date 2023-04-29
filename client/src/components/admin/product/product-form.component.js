@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { useFormik } from "formik";
 import { useCallback, useEffect, useState } from "react";
 import * as Yup from "yup";
@@ -13,7 +14,7 @@ const ProductForm = ({ submitAction, defaultValue }) => {
     let [categories, setCategories] = useState()
     let [brand, setBrand] = useState()
     let [seller, setSeller] = useState()
-    const [isClearable, setIsClearable] = useState(true);
+    const [isClearable] = useState(true);
 
     const schema = Yup.object({
         title: Yup.string().required().nullable(),
