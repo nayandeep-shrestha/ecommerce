@@ -1,11 +1,10 @@
+import React,{ useCallback, useEffect, useState } from "react";
 import "./brand.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-
 import { NavLink } from "react-router-dom";
-import { useCallback, useEffect, useState } from "react";
 import { brand_svc } from "../../admin/brand/brand.service";
 
 const Brand = () => {

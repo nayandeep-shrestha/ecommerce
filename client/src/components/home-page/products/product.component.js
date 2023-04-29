@@ -1,3 +1,4 @@
+import React from "react"
 import "./products.css"
 import { NavLink } from "react-router-dom"
 import smartphones from "../../../assets/images/categories/smartphones.png"

@@ -1,3 +1,4 @@
+import React from 'react'
 import "./home.css"
 import {TbReplace} from "react-icons/tb"
 import Components from "../../components"

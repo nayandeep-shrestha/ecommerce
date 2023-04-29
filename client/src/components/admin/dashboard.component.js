@@ -1,3 +1,4 @@
+import React from "react"
 import Breadcrumb from "./breadcumb.component"
 
 const AdminDashboard =() => {

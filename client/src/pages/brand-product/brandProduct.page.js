@@ -1,5 +1,5 @@
+import React, { useState, useEffect, useCallback } from "react"
 import "./brandProduct.css"
-import { useState, useEffect, useCallback } from "react"
 import { useParams } from "react-router-dom"
 import { brand_svc } from "../../components/admin/brand/brand.service"
 import { Container } from "react-bootstrap"

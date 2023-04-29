@@ -1,3 +1,4 @@
+import React from "react";
 import {NavLink} from "react-router-dom"
 import visa from "../../assets/images/payment/visa.png"
 import mastercard from "../../assets/images/payment/mastercard.png"

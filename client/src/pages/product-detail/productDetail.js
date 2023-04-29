@@ -1,8 +1,8 @@
+import React, { useCallback, useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { FiHeart, FiShare2 } from "react-icons/fi"
 import { product_svc } from "../../components/admin/product/product.service"
 import "./productDetail.css"
-import { useCallback, useEffect, useState } from "react";
 import {useDispatch} from "react-redux"
 import {setDetail} from "../../reducers/cart.slicer"
 import { Swiper, SwiperSlide } from "swiper/react";

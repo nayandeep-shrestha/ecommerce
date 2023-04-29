@@ -1,3 +1,4 @@
+import React from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import profile from "../../assets/images/profile.svg"
 import {BiCategoryAlt, BiShoppingBag} from 'react-icons/bi'
@@ -137,10 +138,6 @@ export const AdminFooter = () => {
 }
 
 export const AdminTopbar = () => {
-    // let loggedInUser = localStorage.getItem("user_data")
-    // loggedInUser = JSON.parse(loggedInUser)
-
-
     //through store 
     let loggedInUser = useSelector((state)=> {
         return state.user.userDetail

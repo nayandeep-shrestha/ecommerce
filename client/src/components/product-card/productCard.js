@@ -1,3 +1,4 @@
+import React from "react"
 import './productCard.css'
 import { NavLink } from "react-router-dom"
 import ReactStars from "react-rating-stars-component";

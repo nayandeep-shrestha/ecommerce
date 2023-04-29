@@ -1,3 +1,4 @@
+import React from "react"
 import { useCallback, useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import "./search.page.css"

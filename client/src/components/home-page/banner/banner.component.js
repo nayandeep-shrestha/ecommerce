@@ -1,8 +1,8 @@
-import { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import "./banner.css"
 import { banner_svc } from "../../admin/banner/banner.service"
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import "swiper/swiper.min.css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Pagination, Keyboard, Autoplay } from "swiper";

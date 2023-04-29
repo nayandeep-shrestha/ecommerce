@@ -1,7 +1,7 @@
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { userStore } from "../../reducers/user.slicer"
-import { useEffect } from "react";
 
 const Logout = () => {
     let navigate = useNavigate();

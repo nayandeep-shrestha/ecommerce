@@ -1,5 +1,5 @@
 import { Outlet} from "react-router-dom"
-import { useState, useCallback, useEffect } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import AuthService from "../../services/auth.service"
 import "../../components/customer/customer.css"
 import { CustomerSideBar } from "../../components/customer/customer-partials.component"

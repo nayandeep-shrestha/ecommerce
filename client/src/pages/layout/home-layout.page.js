@@ -1,8 +1,8 @@
-import Components from "../../components"
+import React, { useCallback, useEffect } from "react"
 import { Outlet } from "react-router-dom"
+import Components from "../../components"
 import AuthService from "../../services/auth.service"
 import { useDispatch } from "react-redux"
-import { useCallback, useEffect } from "react"
 import { userStore } from "../../reducers/user.slicer"
 import { updateCart } from "../../reducers/cart.slicer"
  
