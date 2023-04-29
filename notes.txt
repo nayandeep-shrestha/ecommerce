@@ -33,6 +33,5 @@ statefull/ class component
 
 
 ------------Remaining Work-----------------
-// order history of individual customer
 // filter functionality
 // review functionality
