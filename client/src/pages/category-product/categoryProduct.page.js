@@ -52,9 +52,9 @@ const CategoryProducts = () => {
     let min = document.getElementById("min").value
     let max = document.getElementById("max").value
     if(name.length<=0){
-      navigate(`/productCategory/smartphones?min=${min}&max=${max}`)
+      navigate(`/productCategory/${category?.slug}?min=${min}&max=${max}`)
     }else{
-      navigate(`/productCategory/smartphones?min=${min}&max=${max}&brand=${name[0]}`)
+      navigate(`/productCategory/${category?.slug}?min=${min}&max=${max}&brand=${name[0]}`)
     }
   }
   const handleChange = ([...name])=>{
@@ -63,10 +63,10 @@ const CategoryProducts = () => {
     let max = document.getElementById("max").value
     if(name){
       setName(name)
-      navigate(`/productCategory/smartphones?min=${min}&max=${max}&brand=${name[0]}`)
+      navigate(`/productCategory/${category?.slug}?min=${min}&max=${max}&brand=${name[0]}`)
     }else{
       setName([])
-      navigate(`/productCategory/smartphones?min=${min}&max=${max}`)
+      navigate(`/productCategory/${category?.slug}?min=${min}&max=${max}`)
     }
   }
   return (

@@ -1,6 +1,6 @@
 const Config ={
     JWT_SECRET : "secret ticket",
-    MONGO_URL: "mongodb+srv://shresnayan:_NaYaN_07@techshopdb.yihy1nx.mongodb.net/api",
+    MONGO_URL: "mongodb://localhost:27017/api",
     SMTP_USER:"f1fb5495a3d2d0",
     SMTP_PASSWORD:"2879722acc0c78",
     SMTP_HOST:"smtp.mailtrap.io",
