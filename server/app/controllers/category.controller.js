@@ -9,7 +9,6 @@ class CategoryController{
     getAllList = async (req,res,next) => {
         try{
             let result = await this.category_svc.getAllCategories()
-            console.log(process.env.MONGO_URL)
             res.json({
                 result:result,
                 status: true,

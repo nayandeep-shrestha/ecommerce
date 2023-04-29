@@ -1,7 +1,7 @@
 const express= require("express")
 const cors= require("cors")
 const app = express()
-const PORT = 8000 || process.env.PORT
+const PORT = process.env.PORT || 8000
 app.use(cors())
 require('dotenv').config()
 //DB Connect
@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
     });
 });
 
-app.listen(PORT, 'localhost', (err) => {
+app.listen(PORT,    (err) => {
     if(!err){
         console.log("Server is running on port: "+PORT)
     }
