@@ -13,6 +13,7 @@ import Orders from "./customer/orders.component";
 import Profile from "./customer/profile.component";
 import Logout from "./customer/logout.component";
 import ChangePassword from "./customer/change-password.component";
+import Filter from './common/filter.component'
 
 const Components ={
     NavBar,
@@ -44,6 +45,8 @@ const Components ={
     Profile,
     Logout,
     ChangePassword,
+
+    Filter
     
 }
 

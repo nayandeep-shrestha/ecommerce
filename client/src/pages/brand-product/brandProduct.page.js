@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { brand_svc } from "../../components/admin/brand/brand.service"
 import { Container } from "react-bootstrap"
 import ProductCard from "../../components/product-card/productCard"
+import Components from "../../components"
 
 const BrandProducts = () => {
   let params = useParams()
@@ -28,9 +29,7 @@ const BrandProducts = () => {
   return (
     <Container fluid>
       <div className="row brand-products">
-        <div className="product-filter">
-          <h2 className="sub-title">Filters</h2>
-        </div>
+        <Components.Filter product={product} category={false} brand={true}/>
         <div className="productList-container">
           <div className="brand-header">
             <h2 className="sub-title">{brand?.title}</h2>
