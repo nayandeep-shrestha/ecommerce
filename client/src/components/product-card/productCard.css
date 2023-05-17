@@ -1,15 +1,16 @@
-
 .product-item{
     background: white !important;
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 250px;
-    min-height: 300px;
-    min-width: 200px;
     overflow: hidden;
+    max-width:225px;
+    min-width: 200px;
+    height: fit-content;
     border: 1px solid #e7e8eb;
-    /* margin-right: 1rem; */
+}
+.product-wrapper{
+    overflow: hidden;
 }
 .product-item:hover{
     box-shadow: 2px 0px 12px -1px rgb(0 0 0 / 14%);

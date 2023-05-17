@@ -21,31 +21,31 @@ const Laptops = () => {
   useEffect(() => {
     getLaptops();
   }, [getLaptops])
-    return (
-        <div className="row products">
-            <h2 className='sub-title'>Laptops</h2>
-            <NavLink className='see-all' to="#">View All<span className="arrow"><BsArrowRightShort size={25} /></span></NavLink>
-            <div className="product-container">
-            {
-              product ?
-                <>
-                  {
-                    product.slice(0,6).map((product, index) => (
-                      <div className="" key={index}>
-                        <ProductCard product={product} />
-                      </div>
-                    ))
-                  }
+  return (
+    <div className="row products">
+      <span className='wrap-title'>
+        <h2 className='sub-title'>Laptops</h2> <span className="vertical_divider"></span>
+        <NavLink className='see-all' to="#">View All<span className="arrow"><BsArrowRightShort size={25} /></span></NavLink>
+      </span>
+      <div className="product-container">
+        {
+          product ?
+            <>
+              {
+                product.slice(0, 5).map((product, index) => (
+                    <ProductCard product={product} key={index} />                  
+                ))
+              }
 
-                </>
-                :
-                <>
-                  NOT FOUND
-                </>
-            }
-            </div>
-        </div>
-    )
+            </>
+            :
+            <>
+              NOT FOUND
+            </>
+        }
+      </div>
+    </div>
+  )
 }
 
 export default Laptops

@@ -141,7 +141,7 @@ const ProductDetail = () => {
                   {
                     productDetail && productDetail.images.map((item, index) => (
                       <SwiperSlide key={index}>
-                        <img src={process.env.REACT_APP_IMAGE_URL + "/product/" + item} alt={productDetail.item} />
+                        <img src={process.env.REACT_APP_IMAGE_URL + "/product/" + item} alt={productDetail.item} width={"80px"} height="80px"/>
                       </SwiperSlide>
                     ))
                   }

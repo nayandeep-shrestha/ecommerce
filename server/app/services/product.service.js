@@ -33,14 +33,14 @@ class ProductService {
                 sku: Joi.string().empty(null, ""),
                 stock: Joi.number().empty(null, 0),
                 rating: Joi.number(),
-                numOfReviews: Joi.number(),
-                reviews: Joi.array().items(Joi.object(
-                    {
-                        name: Joi.string().required().min(3),
-                        rating: Joi.number().required(),
-                        comment: Joi.string().required()
-                    }
-                ))
+                // numOfReviews: Joi.number(),
+                // reviews: Joi.array().items(Joi.object(
+                //     {
+                //         name: Joi.string().required().min(3),
+                //         rating: Joi.number().required(),
+                //         comment: Joi.string().required()
+                //     }
+                // ))
             })
             let response = schema.validate(data)
             if (response.error) {

@@ -3,10 +3,11 @@
 }
 .categories-container{
     display: grid;
+    max-width: 100%;
+    margin: 0 auto;
     grid-template-columns: repeat(5,1fr);
-    gap:20px;
-    width: 90%;
-    margin-left: 3.5%;;
+    padding-left: 3.5%;
+    gap:1rem;
 }
 .category-detail{
     border-radius: 10px;
@@ -36,4 +37,18 @@
     position: relative;
     display: block;
     width: 42%;
+}
+.mobile_cats{
+    display: none;
+}
+.desktop_cats{
+    /* display: block; */
+}
+@media (max-width: 768px){
+    .mobile_cats{
+        display:block;
+    }
+    .desktop_cats{
+        display:none;
+    }
 }

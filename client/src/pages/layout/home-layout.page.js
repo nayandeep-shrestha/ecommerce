@@ -5,6 +5,7 @@ import AuthService from "../../services/auth.service"
 import { useDispatch } from "react-redux"
 import { userStore } from "../../reducers/user.slicer"
 import { updateCart } from "../../reducers/cart.slicer"
+import Example from "../../components/common/off-canvas.component"
  
 const HomeLayout = () => {
     let auth_svc = new AuthService()

@@ -24,7 +24,7 @@ const Categories = () => {
         <div className="row categories">
             <h2 className='sub-title'>Shop By Category</h2>
             {/* <NavLink className='see-all' to="#">View All <span className="arrow"><BsArrowRightShort size={25} /></span></NavLink> */}
-            <div className="categories-container">
+            <div className="categories-container desktop_cats">
                 {
                     categories && categories.map((item, index) => (
                         item.parent_id ? <></> :
@@ -43,6 +43,7 @@ const Categories = () => {
                     ))
                 }
             </div>
+            <div className="categories-container mobile_cats"></div>
         </div>
     )
 }

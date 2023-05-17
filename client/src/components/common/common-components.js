@@ -1,5 +1,6 @@
 import React from "react";
 import FsLightbox from "fslightbox-react";
+import Select from 'react-select'
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MdEdit, MdDelete } from "react-icons/md"
@@ -29,7 +30,7 @@ export const Status = (props) => {
     )
 }
 
-export const Actions = ({ type, id, deleteAction}) => {
+export const Actions = ({ type, id, deleteAction }) => {
     const confirm = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -52,25 +53,39 @@ export const Actions = ({ type, id, deleteAction}) => {
     }
     return (<>
         <div className="d-flex">
-            <NavLink to={"/admin/" + type + "/" +id}>
+            <NavLink to={"/admin/" + type + "/" + id}>
                 <MdEdit className="text-success mr-2" style={{ fontSize: "20px" }} />
             </NavLink>
-            <NavLink onClick={confirm} to={"/admin/"+type}>
+            <NavLink onClick={confirm} to={"/admin/" + type}>
                 <MdDelete className="text-danger" style={{ fontSize: "20px" }} />
             </NavLink>
         </div>
     </>)
 }
 
-export const Checkbox =({label, checked, name, handleChange}) => {
+export const Checkbox = ({ label, checked, name, handleChange }) => {
     const defaultChecked = checked ? checked : false;
     let [isChecked, setIsChecked] = useState(defaultChecked)
-    return(
+    return (
         <label className="checkbox">
-            <input type="checkbox" name={name} id="" checked={isChecked} 
-            className={isChecked ? "checked" : ""}
-            onChange={() => {setIsChecked((prev) => !prev);  handleChange(name,isChecked) }} />
+            <input type="checkbox" name={name} id="" checked={isChecked}
+                className={isChecked ? "checked" : ""}
+                onChange={() => { setIsChecked((prev) => !prev); handleChange(name, isChecked) }} />
             <span>{label}</span>
         </label>
+    )
+}
+
+export const Sorter = () => {
+    const options = [{ value: 'name', label: 'Name' },
+    { value: 'price high to low', label: 'Price high to low' },
+    { value: 'price low to high', label: 'Price low to high' }]
+    return (
+        <label className="sorter-label" htmlFor="sorter">Sort By:
+            <Select
+                name="sorter"
+                options={options}
+                className="select"
+            /></label>
     )
 }

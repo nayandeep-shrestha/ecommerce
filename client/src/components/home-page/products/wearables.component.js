@@ -23,8 +23,11 @@ const Wearables = () => {
     }, [getWearables])
     return (
         <div className="row products">
-            <h2 className='sub-title'>Wearables</h2>
-            <NavLink className='see-all' to="#">View All<span className="arrow"><BsArrowRightShort size={25} /></span></NavLink>
+            <div className="wrap-title">
+                <h2 className='sub-title'>Wearables</h2>
+                <span className="vertical_divider"></span>
+                <NavLink className='see-all' to="#">View All<span className="arrow"><BsArrowRightShort size={25} /></span></NavLink>
+            </div>
             <div className="product-container">
                 {
                     product ?

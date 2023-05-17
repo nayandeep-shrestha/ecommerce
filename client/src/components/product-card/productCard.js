@@ -30,11 +30,9 @@ const ProductCard = ({ product }) => {
         <div className="product-item">
             <div className="product-wrapper">
                 <div className="product-label">
-
                     <NavLink className='link' to={`/products/${product._id}`}>
                         <div className="product-img">
-
-                            <img src={product.images[0] ? process.env.REACT_APP_IMAGE_URL + "/product/" + product.images[0] : NoImage} alt="" width="154px" />
+                            <img src={product.images[0] ? process.env.REACT_APP_IMAGE_URL + "/product/" + product.images[0] : NoImage} alt="" width="120px" height="120px" />
                             <span className="discount-flag">{product.discount > 0 ? product.discount + "%" : " "}</span>
                         </div>
                     </NavLink>

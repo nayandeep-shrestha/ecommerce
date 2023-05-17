@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "../breadcumb.component"
 import { useSelector } from "react-redux"
@@ -57,7 +58,7 @@ const ProductEdit = () => {
         try {
             let images= values.images
             let form_data = new FormData()
-            if(images.length) {
+            if(images?.length > 0) {
                 images.map((item) => {
                     if(typeof item === "object"){
                         form_data.append("images", item, item.name)

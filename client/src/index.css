@@ -14,11 +14,11 @@
     font-family: MetropolisL;
     src: url(./assets/fonts/metropolis.light.otf);
 }
-/* *{
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-} */
+}
 body{
     font-family: MetropolisR, sans-serif;
 }
@@ -31,9 +31,12 @@ section{
     background: #F2F3F7;
     padding-bottom: 4rem !important;
 }
+.wrap-title{
+    display: flex;
+    align-items: center;
+}
 .sub-title{
     font-size: 1.6rem;
-    border-right: 0.5px solid rgb(197, 197, 197);
     padding-right: 1.5rem;
     margin-left: 3.5%;
 }
@@ -50,6 +53,12 @@ section{
 .see-all:hover .arrow{
     margin-left: 10px;
     transition: 0.2s ease-in-out;
+}
+.vertical_divider{
+    content: ' ';
+    width: 0.5px;
+    height: 60%;
+    background: grey;
 }
 .btn{
     outline: none;

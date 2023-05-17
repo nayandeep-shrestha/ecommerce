@@ -4,8 +4,8 @@ import { useParams, useSearchParams } from "react-router-dom"
 import { category_svc } from "../../components/admin/category/category.service"
 import { Container } from "react-bootstrap"
 import ProductCard from "../../components/product-card/productCard"
-import Select from 'react-select'
 import Components from "../../components"
+import {Sorter} from "../../components/common/common-components"
 
 const CategoryProducts = () => {
   let params = useParams()
@@ -13,9 +13,6 @@ const CategoryProducts = () => {
   let [category, setCategory] = useState()
   let [product, setProduct] = useState()
   let [filterProduct, setFilterProduct] = useState()
-  const options = [{ value: 'name', label: 'Name' },
-  { value: 'price high to low', label: 'Price high to low' },
-  { value: 'price low to high', label: 'Price low to high' }]
   const getCategoryData = useCallback(async () => {
     try {
       
@@ -49,12 +46,7 @@ const CategoryProducts = () => {
         <div className="productList-container">
           <div className="category-header">
             <h2 className="sub-title">{category?.name}</h2>
-            <label className="sorter-label" htmlFor="sorter">Sort By:
-              <Select
-                name="sorter"
-                options={options}
-                className="select"
-              /></label>
+            <Sorter/>
           </div>
           <span className="divider"></span>
           <div className="productList-wrapper">

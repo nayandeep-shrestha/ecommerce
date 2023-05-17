@@ -3,7 +3,7 @@ import "./brand.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Navigation} from "swiper";
 import { NavLink } from "react-router-dom";
 import { brand_svc } from "../../admin/brand/brand.service";
 
@@ -28,6 +28,26 @@ const Brand = () => {
             {/* <span className="divider"></span> */}
             <div className="brand-container">
                 <Swiper
+                    breakpoints={{
+                        0: {
+                          slidesPerView: 1,
+                        },
+                        424:{
+                          slidesPerView:1,
+                        },
+                        639: {
+                          slidesPerView: 3,
+                        },
+                        865:{
+                          slidesPerView:4
+                        },
+                        1000:{
+                          slidesPerView:5
+                        },
+                        1500:{
+                          slidesPerView:6
+                        },
+                      }}
                     slidesPerView={5}
                     spaceBetween={30}
                     navigation={true}

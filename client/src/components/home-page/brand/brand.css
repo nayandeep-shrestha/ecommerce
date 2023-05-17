@@ -26,18 +26,18 @@
     margin-right: 0 !important;
     width: 90% !important;
 }
-.swiper-wrapper{
+.brand-container .swiper-wrapper{
     margin-left: 2rem;
 }
-.swiper-button-next:after, .swiper-button-prev:after{
+.brand-container .swiper-button-next:after, .brand-container .swiper-button-prev:after{
     font-size: 25px !important;
     color: #aeaeae;
     font-weight: 900;
 }
-.swiper-button-prev:after{
+.brand-container .swiper-button-prev:after{
     margin-left: -30px !important;
 }
-.swiper-button-disabled{
+.brand-container .swiper-button-disabled{
     cursor: not-allowed !important;
     pointer-events: visible !important;
 }

@@ -5,6 +5,7 @@ import { brand_svc } from "../../components/admin/brand/brand.service"
 import { Container } from "react-bootstrap"
 import ProductCard from "../../components/product-card/productCard"
 import Components from "../../components"
+import {Sorter} from "../../components/common/common-components"
 
 const BrandProducts = () => {
   let params = useParams()
@@ -34,12 +35,7 @@ const BrandProducts = () => {
           <div className="brand-header">
             <h2 className="sub-title">{brand?.title}</h2>
             <div className="toolbar-sorter sorter">
-              <label className="sorter-label" htmlFor="sorter">Sort By</label>
-              <select id="sorter" data-role="sorter" className="sorter-options">
-                <option value="name">Name</option>
-                <option value="high-low">Price high to low</option>
-                <option value="low-high" >Price low to high</option>
-              </select>
+              <Sorter/>
             </div>
           </div>
           <span className="divider"></span>
