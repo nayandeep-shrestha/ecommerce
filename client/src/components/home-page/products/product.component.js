@@ -1,13 +1,31 @@
-import React from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import "./products.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import { NavLink } from "react-router-dom"
-import smartphones from "../../../assets/images/categories/smartphones.png"
+// import { NavLink } from "react-router-dom"
+import { product_svc } from "../../admin/product/product.service"
+import ProductCard from "../../product-card/productCard"
+// import smartphones from "../../../assets/images/categories/smartphones.png"
 
 const Products = () => {
+    let [product, setProduct] = useState()
+
+    const getAllProducts = useCallback(async () => {
+        try {
+            let response = await product_svc.getAllList()
+            console.log(response)
+            if (response) {
+                setProduct(response.result)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }, [])
+    useEffect(() => {
+        getAllProducts();
+    }, [getAllProducts])
     return (
         <div className="row products">
             <h2 className='sub-title' style={{ border: "none" }}>Popular Products</h2>
@@ -30,8 +48,8 @@ const Products = () => {
                         1360: {
                             slidesPerView: 5
                         },
-                        1800:{
-                            slidesPerView:6
+                        1800: {
+                            slidesPerView: 6
                         }
                     }}
                     slidesPerView={5}
@@ -40,267 +58,247 @@ const Products = () => {
                     modules={[Navigation]}
                     className="product-swiper"
                 >
-                    <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                    {/* <SwiperSlide>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
+                        <div className="product-item">
+                            <div className="product-wrapper">
+                                <div className="product-label">
+                                    <NavLink className='link' to="#">
+                                        <div className="product-img">
+                                            <img src={smartphones} alt="" width="154px" />
+                                            <span className="discount-flag">20%</span>
+                                        </div>
+                                    </NavLink>
+                                </div>
+                                <div className="product-detail">
+                                    <div className="d-flex position-relative">
+                                        <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
                                     </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
+                                    <div className="product-price-list">
+                                        <span className="product-disPrice">Rs. 1,20,000</span>
+                                        <span className="product-price">Rs. 1,50,000</span>
+                                    </div>
+                                    <div className="product-cart">
+                                        <button className="cart-button">
+                                            <span className="cart-text">Add to cart</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                    </SwiperSlide>
+                        </div>
+                    </SwiperSlide> */}
+                    {
+          product ?
+            <>
+              {
+                product.map((product, index) => (
                     <SwiperSlide>
-                            <div className="product-item">
-                                <div className="product-wrapper">
-                                    <div className="product-label">
-                                        <NavLink className='link' to="#">
-                                            <div className="product-img">
-                                                <img src={smartphones} alt="" width="154px" />
-                                                <span className="discount-flag">20%</span>
-                                            </div>
-                                        </NavLink>
-                                    </div>
-                                    <div className="product-detail">
-                                        <div className="d-flex position-relative">
-                                            <NavLink className="product-title link">Samsung Galaxy S23 Ultra</NavLink>
-                                        </div>
-                                        <div className="product-price-list">
-                                            <span className="product-disPrice">Rs. 1,20,000</span>
-                                            {/* <span className="product-discount">20% off</span> */}
-                                            <span className="product-price">Rs. 1,50,000</span>
-                                        </div>
-                                        <div className="product-cart">
-                                            <button className="cart-button">
-                                                <span className="cart-text">Add to cart</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <ProductCard product={product} key={index} />                  
                     </SwiperSlide>
+                ))
+              }
+
+            </>
+            :
+            <>
+              NOT FOUND
+            </>
+        }
                 </Swiper>
             </div>
         </div>

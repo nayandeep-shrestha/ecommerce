@@ -41,3 +41,19 @@
     cursor: not-allowed !important;
     pointer-events: visible !important;
 }
+
+@media (max-width: 1601px){
+    .brand-container .swiper, .swiper-container{
+        padding-left: 20px !important;
+    }
+}
+@media (max-width: 1201px){
+    .brand-container .swiper, .swiper-container{
+        padding-left: 0px !important;
+    }
+}
+@media (max-width: 424px){
+    .brand-container .swiper, .swiper-container{
+        padding-left: 100px !important;
+    }
+}

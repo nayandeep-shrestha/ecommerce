@@ -2,7 +2,7 @@ import React from "react"
 import './productCard.css'
 import { NavLink } from "react-router-dom"
 import ReactStars from "react-rating-stars-component";
-import NoImage from "../../assets/images/image-not-found.png"
+import NoImage from "../../assets/images/image-not-found(720_720).png"
 import {useDispatch} from "react-redux"
 import {setDetail} from "../../reducers/cart.slicer"
 import { AiFillHeart } from "react-icons/ai"
@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
                     </NavLink>
                 </div>
                 <div className="product-detail">
-                    <div className="d-flex position-relative">
+                    <div className="position-relative" style={{overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap", width:"180px"}}>
                         <NavLink className="product-title link" to={`/products/${product._id}`}>{product.title}</NavLink>
                     </div>
                     <div className="product-rating">

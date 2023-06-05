@@ -14,24 +14,24 @@ const HomePage = () => {
             <div className="services">
                         <div className="services-wrapper">
                             <div className="services-inner">
-                                <span><img src={service} alt="service" /></span>
-                                <span className="service-title" style={{paddingTop:"4px"}}><h6>Free Shipping</h6></span>
+                                <span><img className="service-img" src={service} alt="service" /></span>
+                                <span className="service-title" style={{}}>Free <br/>Shipping</span>
                             </div>
                             <div className="services-inner">
-                                <span><img src={secure} alt="secure" /></span>
-                                <span className="service-title" style={{paddingTop:"4px"}}><h6>Secure Payment</h6></span>
+                                <span><img className="service-img" src={secure} alt="secure" /></span>
+                                <span className="service-title" style={{}}>Secure <br/> Payment</span>
                             </div>
                             <div className="services-inner">
-                                <span><img src={support} alt="support" /></span>
-                                <span className="service-title" style={{paddingTop:"4px"}}><h6>Support 24/7</h6></span>
+                                <span><img className="service-img" src={support} alt="support" /></span>
+                                <span className="service-title" style={{}}>Support 24/7</span>
                             </div>
                             <div className="services-inner">
-                                <span><img src={price} alt="price" /></span>
-                                <span className="service-title" style={{paddingTop:"4px"}}><h6>Affordable Price</h6></span>
+                                <span><img className="service-img" src={price} alt="price" /></span>
+                                <span className="service-title" style={{}}>Affordable<br/> Price</span>
                             </div>
                             <div className="services-inner">
-                                <span><TbReplace size={33}/></span>
-                                <span className="service-title" style={{paddingTop:"4px"}}><h6>Free 7 day replacement</h6></span>
+                                <span><TbReplace className="service-img" size={33}/></span>
+                                <span className="service-title" style={{lineHeight: "16px"}}>Free 7 day <br/>replacement</span>
                             </div>
                         </div>
                     </div>

@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="row footer-divider"></div>
-      <div className="row footer-social">
+      <div className="footer-social">
         <span className="social-icon fb"><BsFacebook size={25} /></span>
         <span className="social-icon whats"><BsWhatsapp size={25} /></span>
         <span className="social-icon"><BsInstagram size={25} className="insta" /></span>

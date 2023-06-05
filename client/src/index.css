@@ -143,3 +143,9 @@ input[type="checkbox"]:focus {
     flex-wrap: wrap;
 }
 
+
+@media (max-width: 1200px){
+    .sub-title{
+        font-size: 1.3rem;
+    }
+}

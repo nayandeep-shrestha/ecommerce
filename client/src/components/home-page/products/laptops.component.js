@@ -11,6 +11,7 @@ const Laptops = () => {
   const getLaptops = useCallback(async () => {
     try {
       let response = await category_svc.getCategoryBySlug("laptops")
+      console.log(response)
       if (response) {
         setProduct(response.result.products)
       }

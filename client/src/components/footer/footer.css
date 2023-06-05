@@ -7,7 +7,8 @@
     align-items: center;
 }
 .footer-container{
-    width: 75%;
+    width: 80%;
+    left:5%;
     padding-top: 50px;
     padding-bottom: 2rem;
 }
@@ -52,7 +53,7 @@
 
 .footer-social{
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-bottom: 1.2rem;
 }
 .social-icon{

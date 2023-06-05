@@ -15,3 +15,13 @@ height: 300px;
 .swiper-pagination-bullet-active{
     background-color: #ff5035 !important;
 }
+
+@media (max-width: 1000px){
+    .swiper{
+        width: 95%;
+        margin-left: 0%;
+    }
+    .banner-img{
+        height:250px;
+    }
+}

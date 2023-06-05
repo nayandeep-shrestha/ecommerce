@@ -26,5 +26,6 @@ class ProductService extends HttpRequestService {
     }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default new ProductService();
 export const product_svc = new ProductService()

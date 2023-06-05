@@ -33,16 +33,16 @@ const Brand = () => {
                           slidesPerView: 1,
                         },
                         424:{
-                          slidesPerView:1,
+                          slidesPerView:2,
                         },
-                        639: {
+                        600: {
                           slidesPerView: 3,
                         },
                         865:{
                           slidesPerView:4
                         },
                         1000:{
-                          slidesPerView:5
+                          slidesPerView:4
                         },
                         1500:{
                           slidesPerView:6
