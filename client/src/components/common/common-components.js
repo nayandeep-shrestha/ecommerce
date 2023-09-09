@@ -4,6 +4,7 @@ import Select from 'react-select'
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MdEdit, MdDelete } from "react-icons/md"
+import { IoEye } from "react-icons/io5"
 import Swal from "sweetalert2"
 import commonFunc from "../../config/function";
 
@@ -24,7 +25,7 @@ export const LightBox = ({ image, name }) => {
 
 export const Status = (props) => {
     return (
-        <span className={`badge p-1 ${props.status === 'active' ? 'badge-active' : 'badge-inactive'}`}>
+        <span className={`badge p-1 ${"badge-"+props.status}`}>
             {commonFunc.capFirst(props.status)}
         </span>
     )
@@ -54,7 +55,16 @@ export const Actions = ({ type, id, deleteAction }) => {
     return (<>
         <div className="d-flex">
             <NavLink to={"/admin/" + type + "/" + id}>
-                <MdEdit className="text-success mr-2" style={{ fontSize: "20px" }} />
+                {
+                    type === "order" ?
+                    <>
+                        <IoEye className="text-success mr-2" style={{fontSize: "20px"}} />
+                    </> 
+                    :
+                    <>
+                        <MdEdit className="text-success mr-2" style={{ fontSize: "20px" }} />
+                    </>
+                }
             </NavLink>
             <NavLink onClick={confirm} to={"/admin/" + type}>
                 <MdDelete className="text-danger" style={{ fontSize: "20px" }} />

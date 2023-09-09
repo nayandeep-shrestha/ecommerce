@@ -26,11 +26,14 @@ const Checkout = () => {
   let [mobDisable, setMobDisable] = useState(true)
   let [addressDisable, setAddressDisable] = useState(true)
   let [item_total, setItemTotal] = useState(0)
+
   let navigate = useNavigate()
   let dispatch = useDispatch()
+
   const cart = useSelector((store) => {
     return store.cart.cartDetail
   })
+  
   const getCartData = useCallback(async (cart) => {
     try {
       let result = await product_svc.getCartDetail(cart)

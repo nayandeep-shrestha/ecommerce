@@ -8,6 +8,7 @@ import {BrandList, BrandCreate, BrandEdit} from "./admin/brand/index";
 import {CategoryList, CategoryCreate, CategoryEdit} from "./admin/category/index";
 import {UserList, UserCreate, UserEdit} from "./admin/user/index";
 import {ProductList, ProductCreate, ProductEdit} from "./admin/product/index";
+import { OrderList, OrderEdit } from "./admin/order";
 import HomeComponent from "./home-page/index";
 import Orders from "./customer/orders.component";
 import Profile from "./customer/profile.component";
@@ -39,6 +40,9 @@ const Components ={
     ProductCreate,
     ProductEdit,
     ProductList,
+
+    OrderList,
+    OrderEdit,
 
     HomeComponent,
     Orders,

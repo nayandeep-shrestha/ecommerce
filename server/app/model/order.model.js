@@ -47,8 +47,8 @@ const OrderModelDef = new mongoose.Schema({
     },
     status:{
         type: String,
-        enum:['pending', 'verify', 'processing', 'cancelled', 'delivered'],
-        default: 'pending'
+        enum:[ 'processing', 'cancelled', 'delivered'],
+        default: 'processing'
     },
     is_paid:{
         type: Boolean,

@@ -15,7 +15,7 @@ class OrderController {
                 delivery_charge: cart.delivery_charge,
                 discount: cart.discount,
                 total_amount: 0,
-                status: "pending",
+                status: "processing",
                 is_paid: !!cart.is_paid,
                 shipping:{
                     address: cart.address,
@@ -117,6 +117,52 @@ class OrderController {
                 status: 400,
                 msg: excep
             })
+        }
+    }
+    getAllOrders = async (req, res, next) => {
+        try {
+            let result = await OrderModel.find()
+            if(result.length > 0){
+                res.json({
+                    result: result,
+                    status: true,
+                    msg: "All Orders list"
+                })
+            }else{
+                throw "No order have been made yet"
+            }
+        } catch (excep) {
+            next({
+                status: 400,
+                msg: excep
+            })
+        }
+    }
+    getOrderDetails= async (req,res,next) =>{
+        try {
+            let result = await this.order_svc.getOrderById(req.params.id)
+            res.json({
+                status: true,
+                result: result,
+                msg: "Order fetched"
+            })
+        } catch (excep) {
+            next({
+                status:400,
+                msg: excep 
+            })
+        }
+    }
+    deleteOrder = async (req, res, next) => {
+        try{
+            let response = await this.order_svc.deleteOrder(req.params.id)
+            res.json({
+                result: response,
+                status: true,
+                msg: "Order deleted."
+            })
+        }catch(excep){
+            next({status: 422, msg: excep})
         }
     }
 }

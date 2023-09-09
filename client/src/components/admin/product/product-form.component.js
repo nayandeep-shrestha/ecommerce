@@ -309,7 +309,7 @@ const ProductForm = ({ submitAction, defaultValue }) => {
                     <button type="reset" className="btn btn-danger mr-3 rounded-pill">
                         Reset
                     </button>
-                    <button type="submit" className=" btn btn-success rounded-pill">
+                    <button type="submit" className=" btn btn-main rounded-pill">
                         Submit
                     </button>
                 </div>

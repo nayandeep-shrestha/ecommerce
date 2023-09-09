@@ -48,7 +48,7 @@ const NavBar = () => {
         localStorage.removeItem("user_token")
         dispatch(userStore({}));
         //localStorage.clear() =>> clear all data
-        navigate("/login")
+        navigate("/")
     }
     let [categories, setCategories] = useState();
     let [sub_categories, setSub_categories] = useState();

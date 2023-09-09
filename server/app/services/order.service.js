@@ -1,4 +1,5 @@
 const ProductModel = require("../model/product.model")
+const OrderModel = require("../model/order.model")
 class OrderService{
     getCartItem = async (cart) => {
         try{
@@ -18,7 +19,32 @@ class OrderService{
             throw excep
         }
     }
-    
+    deleteOrder = async (id) => {
+        try {
+            let data = await OrderModel.findOneAndDelete({
+                _id: id
+            })
+            if (!data) {
+                throw "Content already deleted"
+            }
+            return data
+        } catch (excep) {
+            throw excep
+        }
+    }
+    getOrderById = async (id) => {
+        try {
+            let data = await OrderModel.findOne({
+                _id: id
+            }).populate("user_id")
+            if (!data) {
+                throw "Resource not found"
+            }
+            return data
+        } catch (excep) {
+            throw excep
+        }
+    }
 }
 
 module.exports = OrderService

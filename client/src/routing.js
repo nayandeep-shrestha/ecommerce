@@ -57,6 +57,9 @@ const Routing = () => {
                         <Route path="product" element={<Components.ProductList />} />
                         <Route path="product/create" element={<Components.ProductCreate />} />
                         <Route path="product/:id" element={<Components.ProductEdit />} />
+
+                        <Route path="order" element={<Components.OrderList />} />
+                        <Route path="order/:id" element={<Components.OrderEdit />} />
                     </Route>
 
                     <Route path="*" element={<Pages.Error />} />

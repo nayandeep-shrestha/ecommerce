@@ -18,6 +18,7 @@ const API_ENDPOINTS ={
     product:"/product",
 
     order:"/order",
-    orderList:"/order/list"
+    orderList:"/order/list",
+    allOrders:"/order/Orders",
 }
 export default API_ENDPOINTS

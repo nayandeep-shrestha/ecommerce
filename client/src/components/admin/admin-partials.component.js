@@ -43,11 +43,11 @@ export const AdminSidebar = () => {
             </li>
             
             {/* Nav Item - Dashboard */}
-            <li className="nav-item active">
+            {/* <li className="nav-item active">
                 <NavLink className="nav-link" to={"/"+loggedInUser?.role}>
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></NavLink>
-            </li>
+            </li> */}
 
             {/* Divider */}
             <hr className="sidebar-divider" />
@@ -59,18 +59,10 @@ export const AdminSidebar = () => {
 
             {/* Nav Item - Banner Menu */}
             <li className="nav-item">
-                <NavLink className="nav-link collapsed" to="#" 
-               data-toggle="collapse" data-target="#collapseTwo" 
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <NavLink className="nav-link" to="/admin/banner" aria-expanded="true">
                     <IoIosRibbon className="fa-fw"/>
                     <span>Banner</span>
                 </NavLink>
-                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div className="bg-white py-2 collapse-inner rounded">
-                        <NavLink className="sub-section" to="/admin/banner">Banner List</NavLink>
-                        <NavLink className="sub-section" to="/admin/banner/create">Banner Create</NavLink>
-                    </div>
-                </div>
             </li>
 
             {/* Nav Item - Brand Menu */}
@@ -99,7 +91,7 @@ export const AdminSidebar = () => {
 
             {/* Nav Item - Order Management Menu */}
             <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink className="nav-link" to="/admin/order">
                     <FiShoppingCart className="fa-fw"/>
                     <span>Order Management</span>
                 </NavLink>
